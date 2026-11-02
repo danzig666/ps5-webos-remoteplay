@@ -1,0 +1,73 @@
+Startup dev.3: bootstrap reached uid=5190
+Startup resolving private data directory
+Startup private data directory resolved; entering Rust
+PS5 Remote 0.2.0: hardware status UNVERIFIED uid=5190
+Startup reading private configuration
+Startup configuration ready; opening native platform
+Startup begin SDL video/controller init
+ERROR: wayland: Display scaling requires the missing 'wp_viewporter' protocol: disabling
+ERROR: wayland: Display scaling requires the missing 'zxdg_output_manager_v1' protocol: disabling
+Startup SDL initialized; creating webOS window
+Could not open module param file '/sys/module/mali_kbase/parameters/large_page_conf'
+Startup window created; IME stopped; creating renderer
+SDL renderer=wayland alpha=8
+Startup probing input devices
+M0 probe pattern=/dev/input/event* glob_rc=0 count=32
+M0 bus path=/dev/input/event0 rc=0 bus=0003 vendor=0001 product=0001
+M0 access path=/dev/input/event0 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event1 rc=0 bus=0006 vendor=0001 product=0001
+M0 access path=/dev/input/event1 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event10 rc=0 bus=0003 vendor=0001 product=0001
+M0 access path=/dev/input/event10 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event11 rc=0 bus=0006 vendor=9998 product=9998
+M0 access path=/dev/input/event11 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event12 rc=0 bus=0006 vendor=9998 product=9998
+M0 access path=/dev/input/event12 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event13 rc=0 bus=0006 vendor=9998 product=9998
+M0 access path=/dev/input/event13 read_errno=0 rw_errno=0
+M0 access path=/dev/input/event14 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event15 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event16 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event17 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event18 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event19 read_errno=6 rw_errno=6
+M0 bus path=/dev/input/event2 rc=0 bus=0003 vendor=0000 product=0000
+M0 access path=/dev/input/event2 read_errno=0 rw_errno=0
+M0 access path=/dev/input/event20 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event21 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event22 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event23 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event24 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event25 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event26 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event27 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event28 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event29 read_errno=6 rw_errno=6
+M0 bus path=/dev/input/event3 rc=0 bus=0003 vendor=0000 product=0000
+M0 access path=/dev/input/event3 read_errno=0 rw_errno=0
+M0 access path=/dev/input/event30 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event31 read_errno=6 rw_errno=6
+M0 bus path=/dev/input/event4 rc=0 bus=0003 vendor=0000 product=0000
+M0 access path=/dev/input/event4 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event5 rc=0 bus=0003 vendor=0000 product=0000
+M0 access path=/dev/input/event5 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event6 rc=0 bus=0003 vendor=0000 product=0000
+M0 access path=/dev/input/event6 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event7 rc=0 bus=0003 vendor=0000 product=0000
+M0 access path=/dev/input/event7 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event8 rc=0 bus=0003 vendor=0000 product=0000
+M0 access path=/dev/input/event8 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event9 rc=0 bus=0003 vendor=0000 product=0000
+M0 access path=/dev/input/event9 read_errno=0 rw_errno=0
+M0 probe pattern=/dev/hidraw* glob_rc=0 count=1
+M0 hid path=/dev/hidraw0 rc=0 bus=5 vendor=000f product=3412
+M0 access path=/dev/hidraw0 read_errno=0 rw_errno=0
+Startup scanning controllers
+Startup loading SS4S modules (NDL init deferred until playback)
+SS4S t=1812 level=3 Audio Opening driver ndl-webos5
+SS4S t=1814 level=3 Audio Opened driver: ndl-webos5
+SS4S t=1814 level=3 Video Opening driver ndl-webos5
+SS4S t=1814 level=3 Video Opened driver: ndl-webos5
+Startup platform ready
+Startup presenting first UI frame
+Startup first UI frame submitted; event loop running

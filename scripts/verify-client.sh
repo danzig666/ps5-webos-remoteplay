@@ -8,6 +8,8 @@ python3 scripts/check-pins.py
 python3 scripts/check-extraction.py
 mkdir -p build
 sdk_headers="$WEBOS_SDK_DIR/arm-webos-linux-gnueabi/sysroot/usr/include/SDL2"
+gcc -std=c11 -Wall -Wextra -Werror -I"$sdk_headers" tests/navigation-test.c -o build/navigation-test
+build/navigation-test
 gcc -std=c11 -Wall -Wextra -ffunction-sections -fdata-sections -Wl,--gc-sections -I"$sdk_headers" -Iplatform/client/vendor -Iplatform/client/compat -Iupstream/aurora-tv/core/moonlight-common-c/src tests/hid-report-test.c -o build/hid-report-test
 build/hid-report-test
 gcc -std=c11 -Wall -Wextra -Werror -ffunction-sections -fdata-sections -Wl,--gc-sections -I"$sdk_headers" -Iplatform/client/vendor -Iplatform/client/compat -Iupstream/aurora-tv/core/moonlight-common-c/src tests/controller-selection-test.c -o build/controller-selection-test

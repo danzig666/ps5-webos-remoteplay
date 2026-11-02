@@ -2,7 +2,8 @@
 #define _GNU_SOURCE
 #include "client.h"
 #include <SDL_test_font.h>
-#include <SDL_webOS.h>
+#include "../../upstream/aurora-tv/src/app/platform/webos/sdl_webos_scancode.h"
+#include "navigation.h"
 #include <opus.h>
 #include <signal.h>
 #include <ss4s.h>
@@ -24,6 +25,12 @@ extern int client_input_event(const SDL_Event *, RpInput *),
     client_nav(const SDL_Event *), client_input_diagnostics(char *, size_t);
 static Uint32 scan_time;
 static int text_input_active;
+static unsigned logged_render_errors;
+static void render_result(const char *operation, int result) {
+  if (result < 0 && logged_render_errors++ < 16)
+    fprintf(stderr, "Render failure operation=%s error=%s\n", operation, SDL_GetError());
+  rp_trace_native(0);
+}
 static int startup_failed(const char *stage) {
   fprintf(stderr, "Startup FAILED stage=%s SDL_error=%s\n", stage, SDL_GetError());
   return -1;
@@ -82,6 +89,17 @@ int rp_open(void) {
   }
   fprintf(stderr, "SDL renderer=%s alpha=%d\n", SDL_GetCurrentVideoDriver(),
           alpha);
+  SDL_RendererInfo info = {0};
+  SDL_version runtime;
+  SDL_GetVersion(&runtime);
+  int output_w = 0, output_h = 0, window_w = 0, window_h = 0;
+  SDL_GetRendererInfo(renderer, &info);
+  SDL_GetRendererOutputSize(renderer, &output_w, &output_h);
+  SDL_GetWindowSize(window, &window_w, &window_h);
+  fprintf(stderr, "Graphics SDL=%u.%u.%u renderer=%s flags=%08x window=%dx%d output=%dx%d window_flags=%08x keyboard_focus=%d\n",
+          runtime.major, runtime.minor, runtime.patch, info.name ? info.name : "unknown",
+          info.flags, window_w, window_h, output_w, output_h, SDL_GetWindowFlags(window),
+          SDL_GetKeyboardFocus() == window);
   SDL_GameControllerAddMappingsFromFile("assets/gamecontrollerdb.txt");
   SDL_GameControllerAddMappingsFromFile("assets/gamecontrollerdb_extra.txt");
   fprintf(stderr, "Startup probing input devices\n");
@@ -104,11 +122,13 @@ void rp_text_input(int active) {
   active = active != 0;
   if (active == text_input_active)
     return;
+  rp_trace_native(8);
   if (active)
     SDL_StartTextInput();
   else
     SDL_StopTextInput();
   text_input_active = active;
+  rp_trace_native(0);
 }
 int rp_poll(RpEvent *out) {
   memset(out, 0, sizeof(*out));
@@ -117,16 +137,30 @@ int rp_poll(RpEvent *out) {
     return 1;
   }
   if (SDL_GetTicks() - scan_time > 2000) {
+    rp_trace_native(1);
     client_input_scan();
+    rp_trace_native(0);
     scan_time = SDL_GetTicks();
     out->input_changed = 1;
     client_snapshot(&out->input);
     return 1;
   }
   SDL_Event e;
-  if (!SDL_PollEvent(&e))
+  rp_trace_native(2);
+  int available = SDL_PollEvent(&e);
+  rp_trace_native(0);
+  if (!available)
     return 0;
+  static unsigned diagnostic_events;
+  if (diagnostic_events < 128 && e.type != SDL_MOUSEMOTION && e.type != SDL_CONTROLLERSENSORUPDATE) {
+    fprintf(stderr, "Input t=%u event_type=%u window_event=%u window_flags=%08x keyboard_focus=%d\n",
+            SDL_GetTicks(), e.type, e.type == SDL_WINDOWEVENT ? e.window.event : 0,
+            SDL_GetWindowFlags(window), SDL_GetKeyboardFocus() == window);
+    diagnostic_events++;
+  }
+  rp_trace_native(3);
   out->input_changed = client_input_event(&e, &out->input);
+  rp_trace_native(0);
   if (e.type == SDL_QUIT) {
     out->kind = 9;
     return 1;
@@ -147,71 +181,46 @@ int rp_poll(RpEvent *out) {
     return 1;
   }
   if (e.type == SDL_KEYDOWN) {
-    switch (e.key.keysym.sym) {
-    case SDLK_UP:
-      out->kind = 1;
-      break;
-    case SDLK_DOWN:
-      out->kind = 2;
-      break;
-    case SDLK_LEFT:
-      out->kind = 3;
-      break;
-    case SDLK_RIGHT:
-      out->kind = 4;
-      break;
-    case SDLK_RETURN:
-    case SDLK_KP_ENTER:
-      out->kind = 5;
-      break;
-    case SDLK_ESCAPE:
-      out->kind = 6;
-      out->value = 1;
-      break;
-    case SDLK_BACKSPACE:
-      out->kind = 8;
-      break;
-    case SDLK_F1:
-      out->kind = 11;
-      break;
-    default:
-      break;
-    }
-    if (e.key.keysym.scancode == SDL_WEBOS_SCANCODE_BACK) {
-      out->kind = 6;
-      out->value = 1;
-    }
-    if (e.key.keysym.scancode == SDL_WEBOS_SCANCODE_EXIT)
-      out->kind = 9;
-    if (e.key.keysym.scancode == SDL_WEBOS_SCANCODE_RED)
-      out->kind = 11;
+    client_key_event(&e.key, out);
+    static unsigned logged_keys;
+    if (logged_keys++ < 64)
+      fprintf(stderr, "Keyboard navigation=%d repeat=%u (character values omitted)\n", out->kind, e.key.repeat);
   } else {
     out->kind = client_nav(&e);
   }
   return 1;
 }
 void rp_begin(int menu) {
+  rp_trace_native(4);
   SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-  SDL_RenderClear(renderer);
+  render_result("clear", SDL_RenderClear(renderer));
+  rp_trace_native(5);
   SDL_SetRenderDrawColor(renderer, 12, 22, 32, 255);
   SDL_Rect p = {0, 0, 1280, menu ? 700 : 62};
-  SDL_RenderFillRect(renderer, &p);
+  render_result("panel", SDL_RenderFillRect(renderer, &p));
 }
 void rp_text(int row, const char *s, int selected) {
+  rp_trace_native(5);
   int y = 8 + row * 19;
   if (selected) {
     SDL_SetRenderDrawColor(renderer, 35, 85, 115, 255);
     SDL_Rect p = {5, y - 3, 1240, 18};
-    SDL_RenderFillRect(renderer, &p);
+    render_result("selection", SDL_RenderFillRect(renderer, &p));
   }
   SDL_SetRenderDrawColor(renderer, 245, 245, 245, 255);
-  SDLTest_DrawString(renderer, 12, y, s);
+  rp_trace_native(6);
+  render_result("text", SDLTest_DrawString(renderer, 12, y, s));
 }
 void rp_present(void) {
   static int first = 1;
   if (first)
     fprintf(stderr, "Startup presenting first UI frame\n");
+  rp_trace_native(7);
+  SDL_ClearError();
   SDL_RenderPresent(renderer);
+  if (*SDL_GetError())
+    render_result("present", -1);
+  rp_trace_native(0);
   if (first) {
     fprintf(stderr, "Startup first UI frame submitted; event loop running\n");
     first = 0;

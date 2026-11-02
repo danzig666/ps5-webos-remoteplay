@@ -27,7 +27,7 @@ int main(void) {
     if (!freopen("/tmp/ps5remote.log", "w", stderr))
         return 1;
     setvbuf(stderr, NULL, _IOLBF, 0);
-    fprintf(stderr, "Startup dev.3: bootstrap reached uid=%ld\n", (long)getuid());
+    fprintf(stderr, "Startup dev.4: bootstrap reached uid=%ld\n", (long)getuid());
     fprintf(stderr, "Startup resolving private data directory\n");
     char *pref = SDL_GetPrefPath("homebrew", "ps5remote");
     if (!pref) {
