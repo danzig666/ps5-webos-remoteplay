@@ -6,11 +6,11 @@
 
 | Milestone | Implemented software | Verification available | Deferred acceptance |
 |---|---|---|---|
-| M1 | Original PS5Upload core ARM portability build; lean pinned AGPL protocol extraction; Rust staticlib/C bootstrap; CI recipe; source/patch integrity checks | Original full core check and release library build; extracted protocol fixtures/loopback tests; native ELF link | TV launch, firmware ABI behavior, hosted CI run |
+| M1 | Original PS5Upload core ARM portability build; lean pinned AGPL protocol extraction; Rust staticlib/C bootstrap; CI recipe; source/patch integrity checks | Original full core check and release library build; extracted protocol fixtures/loopback tests; native ELF link | TV launch, firmware ABI behavior |
 | M2 | TV-local IP/account/PIN entry; direct manual PIN registration; 0600 atomic key storage in 0700 directory; registration-key wake; console login passcode; state/cancel behavior | Account/LAN validation, storage permissions/symlinks, invalid-update preservation, cancelled pairing, upstream crypto and passcode tests | Offline PS5 account readiness, real pairing/wake/sign-in, firmware 13.60 |
 | M3 | Direct upstream H.264/HEVC+Opus session; bounded video/audio queues; actual profile dimensions; transparent overlay; decoder retry/keyframe flow; start/stop | Cross-build, Annex-B/keyframe and wrapped audio ordering/pacing checks; no software video decoder | 1080p60 playback, NDL readiness, audio lip sync/eARC, real latency |
 | M4 | Aurora SDL3/compat mappings and scans; USB/BT discovery; normalized axes/triggers/buttons; touch/motion; SDL rumble; GUID/input diagnostics; settings/reconnect | Controller mapping and release tests; queue/short-tap tests; upstream transport tests | DualSense/Xbox/Stadia matrix, sensor axes/signs, physical rumble, OS interception |
-| M5 | Atomic credentials and redacted diagnostics; foreground/background cancellation; bounded retries/decoder recovery; input/effect reset; separate client IPK; reproducibility/CI scripts; source notices and test matrix | Host suite, headless UI secrecy/cancel/release checks, virtual two-hour queue soak, captured HID writer test, ABI/dependency/payload/checksum audits | Physical 30-minute/two-hour soaks, abnormal termination, TV sandbox, hosted CI and release review |
+| M5 | Atomic credentials and redacted diagnostics; foreground/background cancellation; bounded retries/decoder recovery; input/effect reset; separate client IPK; reproducibility/CI scripts; source notices and test matrix | Host suite, headless UI secrecy/cancel/release checks, virtual two-hour queue soak, captured HID writer test, ABI/dependency/payload/checksum audits | Physical 30-minute/two-hour soaks, abnormal termination, TV sandbox and release review |
 | M6 | USB HID triggers/LEDs with intensity; explicit four-channel USB audio haptics and fallback; experimental HDR metadata and SDR fallback; features disabled by default | HID byte layout/strength/reset captures, haptic channel isolation/interpolation, HDR SEI vectors, ARM link | hidraw permission, channel routing, actual effects, HDR colorimetry/plane/mode confirmation |
 
 ## Evidence
@@ -22,6 +22,8 @@
 - `evidence/hardware/README.md`: no hardware runs have occurred. Matrix rows remain NOT_TESTED/DEFERRED.
 
 - `evidence/client-source-tests.txt`, `client-source-deps.txt`, `client-source-arm-build.txt`, and `client-source-package.txt`: standalone exported-source test and ARM build/package, using an initially empty Cargo cache, vendored Rust dependency sources and hash-manifested native source snapshots. Locked dependency archives were pre-seeded for the offline dependency build. Different source paths produce different binary hashes; the same-path clean-build comparisons above are the reproducibility claim.
+
+- `evidence/github-actions-run.json`: hosted GitHub Actions build/test/reproducibility job succeeded for source commit `38032a8f40892c41d4ddecd13b87d54f622f5a57` ([run](https://github.com/danzig666/ps5-webos-remoteplay/actions/runs/41397348283)). Publication commits add versioned downloads, documentation and a source-export exclusion for those downloads; application code is unchanged.
 
 ## Material limits
 

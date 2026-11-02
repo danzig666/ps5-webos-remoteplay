@@ -31,7 +31,7 @@ python3 scripts/fetch-upstream.py
 
 The client IPK is `dist/org.homebrew.ps5remote_0.2.0_arm.ipk`. The M0 feasibility package remains separate as `org.homebrew.ps5remote.m0`; it can coexist with the client. Its original package, source archive and historical evidence are preserved. Its earlier instructions are in [M0-build.md](docs/M0-build.md); current source builds use the workspace's Rust 1.99.1 pin.
 
-Tool/source preparation requires network access; Cargo and native application builds then run offline against the lockfile. `verify-client.sh` uses loopback TCP/UDP sockets for the upstream protocol tests, never a PS5. The CI workflow runs the same build, tests and checksum comparison; it has been authored but has not been run by a hosted CI service here.
+Tool/source preparation requires network access; Cargo and native application builds then run offline against the lockfile. `verify-client.sh` uses loopback TCP/UDP sockets for the upstream protocol tests, never a PS5. [Hosted GitHub Actions passed](https://github.com/danzig666/ps5-webos-remoteplay/actions/runs/41397348283) for source commit `38032a8`, running the build, tests and checksum comparison. Later publication commits add downloads/documentation and exclude binary downloads from future source exports; application code is unchanged.
 
 Configure your TV in Developer Mode or WebOS Dev Manager, then, when hardware testing is resumed:
 
