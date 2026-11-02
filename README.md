@@ -4,11 +4,13 @@ An ARMv7 native client for LG OLED C2/C3, built around pinned PS5Upload Remote P
 
 **Development build 0.2.0. M1–M6 software paths are implemented; real PS5 sessions and C2/C3 hardware validation have not been performed.** Hardware tests are deferred by the user's instruction, not treated as passed. This is not a verified release. See [implementation status and limits](docs/implementation-status.md).
 
-Latest [software bug-check report](docs/bug-check-2026-11-02.md): seven findings fixed, 147 Rust tests passing, native sanitizer checks and reproducible ARM/IPK builds. The original versioned prerelease downloads predate these fixes.
+Latest [software bug-check report](docs/bug-check-2026-11-02.md): seven findings fixed, 147 Rust tests passing, native sanitizer checks and reproducible ARM/IPK builds. The updated `v0.2.0-dev.2` IPK includes these fixes.
 
 ## Downloads
 
-[Development build downloads](https://github.com/danzig666/ps5-webos-remoteplay/tree/main/artifacts/v0.2.0-dev.1) include the native client IPK, the source archive with dependencies, the preserved M0 prototype, and SHA256SUMS. These are development builds with physical hardware testing deferred. The exact checksummed artifacts are stored in the repository because release-asset uploads were unavailable through the connected credentials.
+[Download the updated IPK (v0.2.0-dev.2)](https://raw.githubusercontent.com/danzig666/ps5-webos-remoteplay/v0.2.0-dev.2/artifacts/v0.2.0-dev.2/org.homebrew.ps5remote_0.2.0_arm.ipk) · [Checksum and build details](artifacts/v0.2.0-dev.2/README.md). Package version is still 0.2.0.
+
+[Original dev.1 build downloads](https://github.com/danzig666/ps5-webos-remoteplay/tree/main/artifacts/v0.2.0-dev.1) include the native client IPK, the source archive with dependencies, the preserved M0 prototype, and SHA256SUMS. These are development builds with physical hardware testing deferred. The exact checksummed artifacts are stored in the repository because release-asset uploads were unavailable through the connected credentials.
 
 ## Build and install
 
