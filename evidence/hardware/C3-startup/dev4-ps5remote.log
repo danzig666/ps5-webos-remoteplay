@@ -1,0 +1,275 @@
+Startup dev.4: bootstrap reached uid=5190
+Startup resolving private data directory
+Startup private data directory resolved; entering Rust
+PS5 Remote 0.2.0: hardware status UNVERIFIED uid=5190
+Startup reading private configuration
+Startup configuration ready; opening native platform
+Startup begin SDL video/controller init
+ERROR: wayland: Display scaling requires the missing 'wp_viewporter' protocol: disabling
+ERROR: wayland: Display scaling requires the missing 'zxdg_output_manager_v1' protocol: disabling
+Startup SDL initialized; creating webOS window
+Could not open module param file '/sys/module/mali_kbase/parameters/large_page_conf'
+Startup window created; IME stopped; creating renderer
+SDL renderer=wayland alpha=8
+Graphics SDL=2.32.74 renderer=opengles2 flags=0000000a window=1920x1080 output=1920x1080 window_flags=00000006 keyboard_focus=0
+Startup probing input devices
+M0 probe pattern=/dev/input/event* glob_rc=0 count=32
+M0 bus path=/dev/input/event0 rc=0 bus=0003 vendor=0001 product=0001
+M0 access path=/dev/input/event0 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event1 rc=0 bus=0006 vendor=0001 product=0001
+M0 access path=/dev/input/event1 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event10 rc=0 bus=0003 vendor=0001 product=0001
+M0 access path=/dev/input/event10 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event11 rc=0 bus=0006 vendor=9998 product=9998
+M0 access path=/dev/input/event11 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event12 rc=0 bus=0006 vendor=9998 product=9998
+M0 access path=/dev/input/event12 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event13 rc=0 bus=0006 vendor=9998 product=9998
+M0 access path=/dev/input/event13 read_errno=0 rw_errno=0
+M0 access path=/dev/input/event14 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event15 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event16 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event17 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event18 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event19 read_errno=6 rw_errno=6
+M0 bus path=/dev/input/event2 rc=0 bus=0003 vendor=0000 product=0000
+M0 access path=/dev/input/event2 read_errno=0 rw_errno=0
+M0 access path=/dev/input/event20 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event21 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event22 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event23 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event24 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event25 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event26 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event27 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event28 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event29 read_errno=6 rw_errno=6
+M0 bus path=/dev/input/event3 rc=0 bus=0003 vendor=0000 product=0000
+M0 access path=/dev/input/event3 read_errno=0 rw_errno=0
+M0 access path=/dev/input/event30 read_errno=6 rw_errno=6
+M0 access path=/dev/input/event31 read_errno=6 rw_errno=6
+M0 bus path=/dev/input/event4 rc=0 bus=0003 vendor=0000 product=0000
+M0 access path=/dev/input/event4 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event5 rc=0 bus=0003 vendor=0000 product=0000
+M0 access path=/dev/input/event5 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event6 rc=0 bus=0003 vendor=0000 product=0000
+M0 access path=/dev/input/event6 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event7 rc=0 bus=0003 vendor=0000 product=0000
+M0 access path=/dev/input/event7 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event8 rc=0 bus=0003 vendor=0000 product=0000
+M0 access path=/dev/input/event8 read_errno=0 rw_errno=0
+M0 bus path=/dev/input/event9 rc=0 bus=0003 vendor=0000 product=0000
+M0 access path=/dev/input/event9 read_errno=0 rw_errno=0
+M0 probe pattern=/dev/hidraw* glob_rc=0 count=1
+M0 hid path=/dev/hidraw0 rc=0 bus=5 vendor=000f product=3412
+M0 access path=/dev/hidraw0 read_errno=0 rw_errno=0
+Startup scanning controllers
+Startup loading SS4S modules (NDL init deferred until playback)
+SS4S t=1663 level=3 Audio Opening driver ndl-webos5
+SS4S t=1664 level=3 Audio Opened driver: ndl-webos5
+SS4S t=1664 level=3 Video Opening driver ndl-webos5
+SS4S t=1664 level=3 Video Opened driver: ndl-webos5
+Startup platform ready
+Input t=1991 event_type=1541 window_event=0 window_flags=00000006 keyboard_focus=0
+Input t=1991 event_type=1619 window_event=0 window_flags=00000006 keyboard_focus=0
+Input t=1991 event_type=772 window_event=0 window_flags=00000006 keyboard_focus=0
+Input t=1991 event_type=772 window_event=0 window_flags=00000006 keyboard_focus=0
+Input t=1991 event_type=772 window_event=0 window_flags=00000006 keyboard_focus=0
+Input t=1991 event_type=772 window_event=0 window_flags=00000006 keyboard_focus=0
+Input t=1991 event_type=772 window_event=0 window_flags=00000006 keyboard_focus=0
+Input t=1991 event_type=772 window_event=0 window_flags=00000006 keyboard_focus=0
+Input t=1991 event_type=519 window_event=0 window_flags=00000006 keyboard_focus=0
+Input t=1991 event_type=512 window_event=1 window_flags=00000006 keyboard_focus=0
+Startup presenting first UI frame
+Startup first UI frame submitted; event loop running
+Input t=2150 event_type=512 window_event=12 window_flags=00000206 keyboard_focus=1
+Input t=2150 event_type=772 window_event=0 window_flags=00000206 keyboard_focus=1
+Input t=2150 event_type=772 window_event=0 window_flags=00000206 keyboard_focus=1
+Input t=2150 event_type=772 window_event=0 window_flags=00000206 keyboard_focus=1
+Input t=2150 event_type=772 window_event=0 window_flags=00000206 keyboard_focus=1
+Input t=2150 event_type=772 window_event=0 window_flags=00000206 keyboard_focus=1
+Input t=2150 event_type=772 window_event=0 window_flags=00000206 keyboard_focus=1
+Input t=2159 event_type=512 window_event=10 window_flags=00000606 keyboard_focus=1
+Input t=3180 event_type=772 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=3181 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=3181 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=0 (character values omitted)
+Input t=3325 event_type=769 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=3397 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=0 (character values omitted)
+Input t=3550 event_type=769 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=3586 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=0 (character values omitted)
+Input t=3706 event_type=769 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=3838 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=0 (character values omitted)
+Input t=3999 event_type=769 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=4071 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=0 (character values omitted)
+Input t=4178 event_type=769 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=4377 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=0 (character values omitted)
+Input t=4539 event_type=769 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=4606 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=0 (character values omitted)
+Input t=4767 event_type=769 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=4790 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=0 (character values omitted)
+Input t=4944 event_type=769 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=5210 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=0 (character values omitted)
+Input t=5322 event_type=769 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=5379 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=0 (character values omitted)
+Input t=5485 event_type=769 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=5559 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=0 (character values omitted)
+Input t=5666 event_type=769 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=5968 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=5968 event_type=1027 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=5992 event_type=1027 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=6003 event_type=1027 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=6025 event_type=1027 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=6046 event_type=1027 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=6080 event_type=1027 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=6369 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6393 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6419 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6423 event_type=1027 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=6445 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6462 event_type=1027 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=6474 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6497 event_type=1027 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=6497 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6518 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6544 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6570 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6594 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6620 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6649 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+UI heartbeat t=5 phase=draw_present native=SDLTest_DrawString polls=1796 events=131 navigation=0 frames=205
+Input t=6672 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6694 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6719 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6744 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6769 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6793 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6819 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6845 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6874 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6897 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6918 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6944 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6970 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=6993 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7019 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7048 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7069 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7095 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7119 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7143 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7169 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7200 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7222 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7243 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7269 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7295 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7320 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7344 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7373 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7395 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7419 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7445 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7470 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7494 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7524 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7546 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7570 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7595 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7618 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Keyboard navigation=0 repeat=1 (character values omitted)
+Input t=7634 event_type=1025 window_event=0 window_flags=00004606 keyboard_focus=1
+Input t=7644 event_type=768 window_event=0 window_flags=00004606 keyboard_focus=1
+Input t=7670 event_type=768 window_event=0 window_flags=00004606 keyboard_focus=1
+Input t=7699 event_type=768 window_event=0 window_flags=00004606 keyboard_focus=1
+Input t=7720 event_type=768 window_event=0 window_flags=00004606 keyboard_focus=1
+Input t=7744 event_type=768 window_event=0 window_flags=00004606 keyboard_focus=1
+Input t=7770 event_type=768 window_event=0 window_flags=00004606 keyboard_focus=1
+Input t=7788 event_type=1026 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=7794 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=7819 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=7845 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=7875 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=7897 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=7919 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=7945 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=7969 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=7993 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=8020 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=8044 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=8075 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=8096 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=8120 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=8145 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=8169 event_type=768 window_event=0 window_flags=00000606 keyboard_focus=1
+Input t=8186 event_type=1025 window_event=0 window_flags=00004606 keyboard_focus=1
+UI heartbeat t=10 phase=idle native=returned polls=3996 events=528 navigation=0 frames=432
+UI heartbeat t=15 phase=draw_present native=SDL_RenderPresent polls=5900 events=729 navigation=0 frames=647
+UI heartbeat t=20 phase=draw_present native=SDL_RenderPresent polls=7611 events=731 navigation=0 frames=865
+UI heartbeat t=25 phase=idle native=returned polls=9309 events=734 navigation=0 frames=1083
+UI heartbeat t=30 phase=idle native=returned polls=11027 events=736 navigation=0 frames=1301
+UI heartbeat t=35 phase=idle native=returned polls=12695 events=739 navigation=0 frames=1516
+UI heartbeat t=40 phase=idle native=returned polls=14247 events=741 navigation=0 frames=1725
+UI heartbeat t=45 phase=idle native=returned polls=15931 events=744 navigation=0 frames=1941

@@ -1,0 +1,38 @@
+Pinned build input revisions verified
+PS5Upload extraction matches pinned source and patch
+    Finished `release` profile [optimized] target(s) in 0.03s
+    Finished `release` profile [optimized] target(s) in 0.01s
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ps5remote-webos/build/client
+[ 13%] Built target ss4s-webos-utils
+[ 43%] Built target ss4s
+[ 48%] Built target sdl2_ndl_shim
+[ 70%] Built target ss4s-module-ndl-webos5
+[ 72%] Building C object CMakeFiles/m0.dir/platform/webos/main.c.o
+[ 75%] Building C object CMakeFiles/ps5remote.dir/platform/client/main.c.o
+[ 78%] Building C object CMakeFiles/m0.dir/platform/webos/media_bridge.c.o
+[ 81%] Building C object CMakeFiles/ps5remote.dir/platform/client/platform.c.o
+[ 83%] Building C object CMakeFiles/m0.dir/platform/webos/input_bridge.c.o
+[ 86%] Building C object CMakeFiles/ps5remote.dir/platform/client/input.c.o
+[ 89%] Building C object CMakeFiles/m0.dir/platform/webos/device_probe.c.o
+[ 91%] Linking C executable m0
+[ 91%] Built target m0
+[ 94%] Building C object CMakeFiles/ps5remote.dir/platform/client/vendor/dualsense_usb.c.o
+[ 97%] Building C object CMakeFiles/ps5remote.dir/platform/webos/device_probe.c.o
+[100%] Linking C executable ps5remote
+[100%] Built target ps5remote
+-- Install configuration: "Release"
+-- Up-to-date: /workspace/ps5remote-webos/build/client-stage/lib/ss4s-ndl-webos5.so
+-- Up-to-date: /workspace/ps5remote-webos/build/client-stage/lib/ss4s_modules.ini
+-- Up-to-date: /workspace/ps5remote-webos/build/client-stage/lib/libSDL2-2.0.so.0
+-- Install configuration: "Release"
+-- Installing: /workspace/ps5remote-webos/build/client-stage/./ps5remote
+4891148f269c251fae4f91fb30faeb0263017907a09c8875eea704a2f558bd37 ps5remote
+c452c9ea0f2bb7e75b1485c5924d2506378dac26ae58084dd51f97cedfacd4da lib/libgcc_s.so.1
+eda24bd38e58a180d466385060000e02c629f14545176437f42df9544ff75c10 lib/libSDL2-webos.so.0
+c9c1b25e88e1385135959f1877fec2a0ccb0b76f9f5854f7ceee4c717b05b2c0 lib/libSDL2-2.0.so.0
+8b2f1fb89d7c29af34fc6647224d3b01f4d5c6565593b79b670dcf0f2d24ab83 lib/libSDL3.so.0
+5991e72b825af820aaf31e15a65478445f47938c0189bbc33f60f4061f05ccb9 lib/ss4s-ndl-webos5.so
+33bf16386d061893b6ec62a91430fa060c5d1248203774c152caedef886a2059 lib/libatomic.so.1
+Client ELF/assets/dependency audit passed; TV/runtime functionality UNVERIFIED

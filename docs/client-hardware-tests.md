@@ -1,6 +1,6 @@
 # Deferred native-client acceptance matrix
 
-**C3 launch failed in the user-provided dev.2 log (`Unsafe data directory`). Dev.3 reaches a visible menu, but physical arrows are unresponsive. Dev.4 diagnostics await retest; other items remain NOT TESTED.** Run separately on C2 and C3 and each updated firmware. Record model suffix, webOS/firmware, Developer Mode privilege context, package SHA-256, console firmware (including 13.60 where available), controller/transport and evidence file/time. Do not collect secret configuration.
+**C3 launch failed in the user-provided dev.2 log (`Unsafe data directory`). Dev.3 reaches a visible menu, but physical arrows are unresponsive. Dev.4 logs confirm focus, continued rendering and key arrival; the header/runtime ABI mismatch is corrected in dev.5, awaiting retest. Other items remain NOT TESTED.** Run separately on C2 and C3 and each updated firmware. Record model suffix, webOS/firmware, Developer Mode privilege context, package SHA-256, console firmware (including 13.60 where available), controller/transport and evidence file/time. Do not collect secret configuration.
 
 | Gate | C2 | C3 | Required evidence |
 |---|---|---|---|

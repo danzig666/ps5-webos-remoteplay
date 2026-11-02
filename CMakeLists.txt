@@ -27,12 +27,17 @@ target_link_libraries(m0 PRIVATE "${CMAKE_SOURCE_DIR}/target/armv7-unknown-linux
 set_target_properties(m0 PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE INSTALL_RPATH "$ORIGIN/lib")
 install(TARGETS m0 RUNTIME DESTINATION . COMPONENT M0)
 
-target_include_directories(m0 PRIVATE ${SDL2_INCLUDE_DIRS})
+# The SDK adds fields to SDL events. Its headers do not match sdl2-compat.
+set(SDL_COMPAT_HEADERS "${CMAKE_SOURCE_DIR}/build/sdl-runtime/include/SDL2")
+if(NOT EXISTS "${SDL_COMPAT_HEADERS}/SDL_config_unix.h")
+  message(FATAL_ERROR "Run scripts/build-deps.sh to install headers matching the SDL compatibility runtime")
+endif()
+target_include_directories(m0 PRIVATE "${SDL_COMPAT_HEADERS}")
 
 option(BUILD_CLIENT "Build direct Remote Play client" OFF)
 if(BUILD_CLIENT)
   add_executable(ps5remote platform/client/main.c platform/client/platform.c platform/client/input.c platform/client/vendor/dualsense_usb.c platform/webos/device_probe.c)
-  target_include_directories(ps5remote PRIVATE platform/client/compat platform/client/vendor upstream/aurora-tv/core/moonlight-common-c/src ${SDL2_INCLUDE_DIRS} ${OPUS_INCLUDE_DIRS})
+  target_include_directories(ps5remote PRIVATE platform/client/compat platform/client/vendor upstream/aurora-tv/core/moonlight-common-c/src "${SDL_COMPAT_HEADERS}" ${OPUS_INCLUDE_DIRS})
   target_compile_options(ps5remote PRIVATE -Wall -Wextra -Werror)
   target_link_libraries(ps5remote PRIVATE "${CMAKE_SOURCE_DIR}/target/armv7-unknown-linux-gnueabi/release/libps5remote_app.a" ss4s SDL2_test sdl2-webos ${OPUS_LIBRARIES} pthread dl m atomic)
   set_target_properties(ps5remote PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE INSTALL_RPATH "$ORIGIN/lib")

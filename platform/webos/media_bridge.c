@@ -2,7 +2,7 @@
 #include "platform.h"
 #include <SDL.h>
 #include <SDL_test_font.h>
-#include <SDL_webOS.h>
+#include "../../upstream/aurora-tv/src/app/platform/webos/sdl_webos_scancode.h"
 #include <ss4s.h>
 #include <signal.h>
 #include <stdarg.h>
@@ -64,9 +64,9 @@ int platform_tick(void) {
     while(SDL_PollEvent(&e)) {
         if(e.type==SDL_QUIT)stopped=1;
         if(e.type==SDL_KEYDOWN){
-            if(e.key.keysym.sym==SDLK_ESCAPE || e.key.keysym.scancode==SDL_WEBOS_SCANCODE_BACK || e.key.keysym.scancode==SDL_WEBOS_SCANCODE_EXIT)stopped=1;
-            if(!e.key.repeat && (e.key.keysym.sym==SDLK_r || e.key.keysym.scancode==SDL_WEBOS_SCANCODE_RED))input_rumble();
-            if(!e.key.repeat && (e.key.keysym.sym==SDLK_g || e.key.keysym.scancode==SDL_WEBOS_SCANCODE_GREEN))probe_grab(getenv("M0_GRAB_DEVICE"));
+            if(e.key.keysym.sym==SDLK_ESCAPE || e.key.keysym.scancode==SDL_SCANCODE_WEBOS_BACK || e.key.keysym.scancode==SDL_SCANCODE_WEBOS_EXIT)stopped=1;
+            if(!e.key.repeat && (e.key.keysym.sym==SDLK_r || e.key.keysym.scancode==SDL_SCANCODE_WEBOS_RED))input_rumble();
+            if(!e.key.repeat && (e.key.keysym.sym==SDLK_g || e.key.keysym.scancode==SDL_SCANCODE_WEBOS_GREEN))probe_grab(getenv("M0_GRAB_DEVICE"));
         }
         input_event(&e);
     }

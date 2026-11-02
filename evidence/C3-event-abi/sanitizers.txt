@@ -1,0 +1,4 @@
+M0 grab disabled (M0_GRAB_DEVICE unset/invalid)
+M0 grab disabled (M0_GRAB_DEVICE unset/invalid)
+M0 grab open path=/dev/input/event-m0-nonexistent errno=2
+Host C address/undefined-behavior checks passed (no hardware access)

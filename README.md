@@ -8,7 +8,9 @@ Latest [software bug-check report](docs/bug-check-2026-11-02.md): seven findings
 
 ## Downloads
 
-**Current C3 diagnostic build:** [Download dev.4 IPK](https://raw.githubusercontent.com/danzig666/ps5-webos-remoteplay/v0.2.0-dev.4/artifacts/v0.2.0-dev.4/org.homebrew.ps5remote_0.2.0_arm.ipk) · [Input diagnostics and retest instructions](artifacts/v0.2.0-dev.4/README.md). Dev.3 displays the menu but the user reports physical arrows do nothing. Input freeze remains unresolved.
+**Latest C3 correction:** [Download dev.5 IPK](https://raw.githubusercontent.com/danzig666/ps5-webos-remoteplay/v0.2.0-dev.5/artifacts/v0.2.0-dev.5/org.homebrew.ps5remote_0.2.0_arm.ipk) · [Keyboard event layout fix and evidence](artifacts/v0.2.0-dev.5/README.md). Dev.4 confirmed rendering and remote event delivery; incompatible SDK event headers caused key decoding to fail. Dev.5 uses headers matching the packaged runtime; C3 retest is pending.
+
+**Previous C3 diagnostic build:** [Download dev.4 IPK](https://raw.githubusercontent.com/danzig666/ps5-webos-remoteplay/v0.2.0-dev.4/artifacts/v0.2.0-dev.4/org.homebrew.ps5remote_0.2.0_arm.ipk) · [Input diagnostics and retest instructions](artifacts/v0.2.0-dev.4/README.md). Dev.3 displays the menu but the user reports physical arrows do nothing. Input freeze remains unresolved.
 
 **C3 startup correction:** [Download dev.3 IPK](https://raw.githubusercontent.com/danzig666/ps5-webos-remoteplay/v0.2.0-dev.3/artifacts/v0.2.0-dev.3/org.homebrew.ps5remote_0.2.0_arm.ipk) · [Cause, fixes and retest instructions](artifacts/v0.2.0-dev.3/README.md). The user-provided dev.2 log confirmed a storage-directory rejection before window initialization. Successful launch with dev.3 is awaiting hardware retest.
 

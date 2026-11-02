@@ -3,6 +3,10 @@
 #include <SDL.h>
 #include <stddef.h>
 #include <stdint.h>
+/* Match the shipped sdl2-compat ABI, not the SDK's webOS SDL2 fork. */
+_Static_assert(offsetof(SDL_KeyboardEvent, keysym) == 16, "SDL keyboard ABI mismatch");
+_Static_assert(offsetof(SDL_KeyboardEvent, repeat) == 13, "SDL repeat ABI mismatch");
+_Static_assert(sizeof(SDL_KeyboardEvent) == 32, "SDL keyboard size mismatch");
 /* All functions are called by Rust on the SDL owner thread. */
 typedef struct {
   uint32_t buttons;

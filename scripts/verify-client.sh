@@ -1,18 +1,17 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")/.."
-: "${WEBOS_SDK_DIR:?Set WEBOS_SDK_DIR for the SDK SDL headers}"
 cargo test --workspace --locked --offline
 cargo fmt -p ps5remote-app -- --check
 python3 scripts/check-pins.py
 python3 scripts/check-extraction.py
 mkdir -p build
-sdk_headers="$WEBOS_SDK_DIR/arm-webos-linux-gnueabi/sysroot/usr/include/SDL2"
-gcc -std=c11 -Wall -Wextra -Werror -I"$sdk_headers" tests/navigation-test.c -o build/navigation-test
+sdl_headers="$PWD/build/sdl-runtime/include/SDL2"
+gcc -std=c11 -Wall -Wextra -Werror -I"$sdl_headers" tests/navigation-test.c -o build/navigation-test
 build/navigation-test
-gcc -std=c11 -Wall -Wextra -ffunction-sections -fdata-sections -Wl,--gc-sections -I"$sdk_headers" -Iplatform/client/vendor -Iplatform/client/compat -Iupstream/aurora-tv/core/moonlight-common-c/src tests/hid-report-test.c -o build/hid-report-test
+gcc -std=c11 -Wall -Wextra -ffunction-sections -fdata-sections -Wl,--gc-sections -I"$sdl_headers" -Iplatform/client/vendor -Iplatform/client/compat -Iupstream/aurora-tv/core/moonlight-common-c/src tests/hid-report-test.c -o build/hid-report-test
 build/hid-report-test
-gcc -std=c11 -Wall -Wextra -Werror -ffunction-sections -fdata-sections -Wl,--gc-sections -I"$sdk_headers" -Iplatform/client/vendor -Iplatform/client/compat -Iupstream/aurora-tv/core/moonlight-common-c/src tests/controller-selection-test.c -o build/controller-selection-test
+gcc -std=c11 -Wall -Wextra -Werror -ffunction-sections -fdata-sections -Wl,--gc-sections -I"$sdl_headers" -Iplatform/client/vendor -Iplatform/client/compat -Iupstream/aurora-tv/core/moonlight-common-c/src tests/controller-selection-test.c -o build/controller-selection-test
 build/controller-selection-test
 printf 'USB HID byte/strength/reset capture passed (no hardware access)\n'
 gcc -std=c11 -Wall -Wextra -Werror platform/webos/device_probe.c tests/device-probe-test.c -o build/device-probe-test

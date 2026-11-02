@@ -2,10 +2,9 @@
 # Host-only memory/undefined-behavior checks; no TV or gamepad access.
 set -euo pipefail
 cd "$(dirname "$0")/.."
-: "${WEBOS_SDK_DIR:?Set WEBOS_SDK_DIR for SDL headers}"
 mkdir -p build/sanitizers
-headers="$WEBOS_SDK_DIR/arm-webos-linux-gnueabi/sysroot/usr/include/SDL2"
-for test in hid-report controller-selection; do
+headers="$PWD/build/sdl-runtime/include/SDL2"
+for test in navigation hid-report controller-selection; do
   gcc -std=c11 -Wall -Wextra -ffunction-sections -fdata-sections -Wl,--gc-sections \
     -fsanitize=address,undefined -fno-omit-frame-pointer \
     -I"$headers" -Iplatform/client/vendor -Iplatform/client/compat \

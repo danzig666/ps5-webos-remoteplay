@@ -1,0 +1,11 @@
+In file included from tests/../platform/client/navigation.h:2,
+                 from tests/navigation-test.c:1:
+tests/../platform/client/client.h:7:1: error: static assertion failed: "SDL keyboard ABI mismatch"
+    7 | _Static_assert(offsetof(SDL_KeyboardEvent, keysym) == 16, "SDL keyboard ABI mismatch");
+      | ^~~~~~~~~~~~~~
+tests/../platform/client/client.h:8:1: error: static assertion failed: "SDL repeat ABI mismatch"
+    8 | _Static_assert(offsetof(SDL_KeyboardEvent, repeat) == 13, "SDL repeat ABI mismatch");
+      | ^~~~~~~~~~~~~~
+tests/../platform/client/client.h:9:1: error: static assertion failed: "SDL keyboard size mismatch"
+    9 | _Static_assert(sizeof(SDL_KeyboardEvent) == 32, "SDL keyboard size mismatch");
+      | ^~~~~~~~~~~~~~
