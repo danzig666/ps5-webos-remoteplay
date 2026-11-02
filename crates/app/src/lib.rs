@@ -16,9 +16,11 @@ fn run() -> Result<(), &'static str> {
         eprintln!("Native client panic (details suppressed)")
     }));
     let dir = std::env::var_os("PS5REMOTE_DATA_DIR").ok_or("Private storage path unavailable")?;
+    eprintln!("Startup reading private configuration");
     let store = config::Store::open(PathBuf::from(dir))?;
     let prefs = store.preferences()?;
     let paired = store.pairing()?;
+    eprintln!("Startup configuration ready; opening native platform");
     if unsafe { ffi::rp_open() } != 0 {
         unsafe {
             ffi::rp_close();

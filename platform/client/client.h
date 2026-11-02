@@ -26,6 +26,7 @@ int rp_poll(RpEvent *event);
 void rp_begin(int menu);
 void rp_text(int row, const char *text, int selected);
 void rp_present(void);
+void rp_text_input(int active);
 void rp_close(void);
 int rp_media_open(int width, int height, int fps, int codec, int rate,
                   int channels, int samples, const RpHdr *hdr);

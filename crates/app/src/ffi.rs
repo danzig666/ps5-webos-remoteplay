@@ -100,6 +100,7 @@ extern "C" {
     pub fn rp_begin(menu: i32);
     pub fn rp_text(row: i32, text: *const c_char, selected: i32);
     pub fn rp_present();
+    pub fn rp_text_input(active: i32);
     pub fn rp_close();
     pub fn rp_media_open(
         width: i32,

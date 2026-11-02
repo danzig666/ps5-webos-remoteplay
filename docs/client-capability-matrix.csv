@@ -13,7 +13,7 @@ app_version,milestone,TV,firmware,feature,default_state,software_path,hardware_v
 0.2.0,M6,C2,UNKNOWN,USB_adaptive_triggers_LEDs,off,IMPLEMENTED,NOT_TESTED,
 0.2.0,M6,C2,UNKNOWN,USB_four_channel_haptics,off,IMPLEMENTED,NOT_TESTED,
 0.2.0,M6,C2,UNKNOWN,HDR_colorimetry_and_SDR_fallback,off,IMPLEMENTED,NOT_TESTED,
-0.2.0,M1,C3,UNKNOWN,native_launch,default,IMPLEMENTED,NOT_TESTED,
+0.2.0,M1,C3,UNKNOWN,native_launch,default,IMPLEMENTED,FAILED_USER_REPORTED_DEV2,evidence/hardware/C3-startup/dev2-ps5remote.log; dev3 fix awaiting retest
 0.2.0,M2,C3,UNKNOWN,local_PIN_pairing_and_wake,default,IMPLEMENTED,NOT_TESTED,
 0.2.0,M2,C3,UNKNOWN,login_passcode_flow,default,IMPLEMENTED,NOT_TESTED,
 0.2.0,M3,C3,UNKNOWN,H264_Opus_1080p60,default,IMPLEMENTED,NOT_TESTED,

@@ -1,0 +1,41 @@
+   Compiling ps5remote-app v0.2.0 (/workspace/ps5remote-webos/crates/app)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.36s
+     Running unittests src/lib.rs (target/debug/deps/ps5remote_app-8b463aa35a6dd3ef)
+
+running 27 tests
+test config::tests::blocks_external_hosts_and_bad_account ... ok
+test config::tests::rejects_symlink ... ok
+test config::tests::atomic_private_round_trip_and_bad_update_preserves_pairing ... ok
+test config::tests::private_child_preserves_installation_directory_permissions ... ok
+test ffi::tests::c_layout ... ok
+test ffi::tests::axes_buttons_and_touch_mapping ... ok
+test hdr::tests::received_mastering_metadata_and_truncation ... ok
+test haptics::tests::channel_routing_and_off ... ok
+test queues::soak::audio_pacing_does_not_throttle_100hz_to_60hz_ui ... ok
+test queues::tests::duplicate_audio_does_not_flush_full_buffer ... ok
+test queues::tests::hevc_irap ... ok
+test queues::tests::jitter_reorders_across_wrap ... ok
+test queues::tests::overflow_discards_dependencies_until_idr ... ok
+test queues::tests::release_discards_pending_presses ... ok
+test queues::tests::short_tap_and_disconnect_are_ordered ... ok
+test ui::tests::delayed_audio_header_preserves_initial_video_keyframe ... ok
+test ui::tests::disabling_reconnect_cancels_an_already_scheduled_attempt ... ok
+test ui::tests::cancelled_pairing_result_does_not_replace_existing_credentials ... ok
+test ui::tests::intensity_respects_off_and_weaker_setting ... ok
+test ui::tests::disconnected_controller_cannot_revive_stale_rumble_on_strength_change ... ok
+test ui::tests::new_decoder_rejects_dependent_frame_and_requests_keyframe ... ok
+test ui::tests::opening_menu_releases_game_input_and_disconnect_cancels_retry ... ok
+test ui::tests::passcode_prompt_focus_does_not_prevent_selecting_submit ... ok
+test ui::tests::reenabled_effects_restore_cached_trigger_and_led_state ... ok
+test ui::tests::setup_editor_saves_host_and_never_draws_secrets ... ok
+test ui::tests::text_input_is_enabled_only_for_a_visible_editor ... ok
+test queues::soak::simulated_two_hour_queue_soak ... ok
+
+test result: ok. 27 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.51s
+
+   Doc-tests ps5remote_app
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

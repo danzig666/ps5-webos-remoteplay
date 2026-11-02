@@ -1,0 +1,12 @@
+97a5ef3b0a76198411d1cded0b6e4f6960613f4107700724053072236ba8c2a6 ps5remote
+c452c9ea0f2bb7e75b1485c5924d2506378dac26ae58084dd51f97cedfacd4da lib/libgcc_s.so.1
+eda24bd38e58a180d466385060000e02c629f14545176437f42df9544ff75c10 lib/libSDL2-webos.so.0
+c9c1b25e88e1385135959f1877fec2a0ccb0b76f9f5854f7ceee4c717b05b2c0 lib/libSDL2-2.0.so.0
+8b2f1fb89d7c29af34fc6647224d3b01f4d5c6565593b79b670dcf0f2d24ab83 lib/libSDL3.so.0
+5991e72b825af820aaf31e15a65478445f47938c0189bbc33f60f4061f05ccb9 lib/ss4s-ndl-webos5.so
+33bf16386d061893b6ec62a91430fa060c5d1248203774c152caedef886a2059 lib/libatomic.so.1
+Client ELF/assets/dependency audit passed; TV/runtime functionality UNVERIFIED
+Create org.homebrew.ps5remote_0.2.0_arm.ipk to /workspace/ps5remote-webos/dist
+Success
+Native client IPK metadata, complete payload and absence of user configuration verified
+c781aaab69d32a05f21e8f0ff997e62b62cc3e05a11f53cf3a45e25c846df64c  dist/org.homebrew.ps5remote_0.2.0_arm.ipk

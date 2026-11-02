@@ -774,6 +774,7 @@ impl App {
     }
     pub fn draw(&self) {
         unsafe {
+            ffi::rp_text_input((self.menu && self.editor.is_some()) as i32);
             ffi::rp_begin(self.menu as i32);
         }
         let status = self
@@ -951,6 +952,23 @@ mod tests {
         assert_eq!(weaker(1, 3), 3);
         assert_eq!(weaker(2, 1), 2);
         assert_eq!(scale_rumble((255, 255), 0), (0, 0));
+    }
+
+    #[test]
+    fn text_input_is_enabled_only_for_a_visible_editor() {
+        let (mut a, path) = app();
+        a.draw();
+        assert_eq!(crate::native_test::TEXT_INPUT.with(|v| v.get()), 0);
+        a.event(&Event {
+            kind: 5,
+            ..Default::default()
+        });
+        a.draw();
+        assert_eq!(crate::native_test::TEXT_INPUT.with(|v| v.get()), 1);
+        a.menu = false;
+        a.draw();
+        assert_eq!(crate::native_test::TEXT_INPUT.with(|v| v.get()), 0);
+        std::fs::remove_dir_all(path).unwrap();
     }
 
     fn app() -> (App, std::path::PathBuf) {

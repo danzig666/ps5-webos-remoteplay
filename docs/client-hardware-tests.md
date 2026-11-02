@@ -1,10 +1,10 @@
 # Deferred native-client acceptance matrix
 
-**Every item below is NOT TESTED.** Run separately on C2 and C3 and each updated firmware. Record model suffix, webOS/firmware, Developer Mode privilege context, package SHA-256, console firmware (including 13.60 where available), controller/transport and evidence file/time. Do not collect secret configuration.
+**C3 launch failed in the user-provided dev.2 log (`Unsafe data directory`). The dev.3 fix awaits retest; other items remain NOT TESTED.** Run separately on C2 and C3 and each updated firmware. Record model suffix, webOS/firmware, Developer Mode privilege context, package SHA-256, console firmware (including 13.60 where available), controller/transport and evidence file/time. Do not collect secret configuration.
 
 | Gate | C2 | C3 | Required evidence |
 |---|---|---|---|
-| Native install/tile launch/transparent video plane | NOT TESTED | NOT TESTED | Install output, SDL/NDL log, moving video with overlay |
+| Native install/tile launch/transparent video plane | NOT TESTED | LAUNCH FAILED dev.2; dev.3 retest pending | Install output, SDL/NDL log, moving video with overlay |
 | Local PIN pairing and private storage | NOT TESTED | NOT TESTED | Redacted outcome and file mode only; never keys/account/PIN |
 | Direct offline wake/connect/stream with Internet blocked | NOT TESTED | NOT TESTED | LAN-only firewall observation, no PC service, console status |
 | Four-digit login passcode/cancel/wrong-code flow | NOT TESTED | NOT TESTED | Redacted UI outcome, no passcode recording |

@@ -121,6 +121,13 @@ impl Store {
         }
         let m = fs::symlink_metadata(&dir).map_err(|_| "Cannot inspect data directory")?;
         if !m.is_dir() || m.file_type().is_symlink() || m.uid() != unsafe { libc::geteuid() } {
+            eprintln!(
+                "Storage rejected: directory={} symlink={} owner_uid={} app_uid={}",
+                m.is_dir(),
+                m.file_type().is_symlink(),
+                m.uid(),
+                unsafe { libc::geteuid() }
+            );
             return Err("Unsafe data directory");
         }
         fs::set_permissions(&dir, fs::Permissions::from_mode(0o700))
@@ -264,5 +271,23 @@ mod tests {
         std::os::unix::fs::symlink("/etc/passwd", d.join("pairing.json")).unwrap();
         assert!(s.pairing().is_err());
         fs::remove_dir_all(d).unwrap();
+    }
+
+    #[test]
+    fn private_child_preserves_installation_directory_permissions() {
+        let base = dir();
+        fs::create_dir(&base).unwrap();
+        fs::set_permissions(&base, fs::Permissions::from_mode(0o755)).unwrap();
+        let private = base.join("private");
+        let store = Store::open(private.clone()).unwrap();
+        store.save_preferences(&Preferences::default()).unwrap();
+        assert_eq!(fs::metadata(&base).unwrap().mode() & 0o777, 0o755);
+        assert_eq!(fs::metadata(&private).unwrap().mode() & 0o777, 0o700);
+        assert_eq!(
+            fs::metadata(private.join("settings.json")).unwrap().mode() & 0o777,
+            0o600
+        );
+        assert!(store.preferences().is_ok());
+        fs::remove_dir_all(base).unwrap();
     }
 }

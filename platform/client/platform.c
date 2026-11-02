@@ -23,6 +23,11 @@ extern void client_input_scan(void), client_input_close(void),
 extern int client_input_event(const SDL_Event *, RpInput *),
     client_nav(const SDL_Event *), client_input_diagnostics(char *, size_t);
 static Uint32 scan_time;
+static int text_input_active;
+static int startup_failed(const char *stage) {
+  fprintf(stderr, "Startup FAILED stage=%s SDL_error=%s\n", stage, SDL_GetError());
+  return -1;
+}
 static void stop_signal(int sig) {
   (void)sig;
   stopping = 1;
@@ -45,33 +50,45 @@ int rp_open(void) {
   SDL_SetHint("SDL_WEBOS_ACCESS_POLICY_KEYS_BACK", "1");
   SDL_SetHint("SDL_WEBOS_ACCESS_POLICY_KEYS_EXIT", "1");
     SDL_SetHint("SDL_WEBOS_ACCESS_POLICY_KEYS_GUIDE", "1");
+  fprintf(stderr, "Startup begin SDL video/controller init\n");
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMECONTROLLER | SDL_INIT_HAPTIC) < 0)
-    return -1;
+    return startup_failed("SDL_Init");
+  fprintf(stderr, "Startup SDL initialized; creating webOS window\n");
   SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
   SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
   SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
   SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
   window = SDL_CreateWindow("PS5 Remote", SDL_WINDOWPOS_UNDEFINED,
                             SDL_WINDOWPOS_UNDEFINED, 1920, 1080,
-                            SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP |
-                                SDL_WINDOW_SHOWN);
+                            /* Match Aurora: the webOS shell stretches this
+                             * surface. SDL fullscreen invokes an unsupported
+                             * toplevel/exclusive modeset through sdl2-compat. */
+                            SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
   if (!window)
-    return -1;
+    return startup_failed("SDL_CreateWindow");
+  /* sdl2-compat may start webOS IME automatically during window creation. */
+  SDL_StopTextInput();
+  text_input_active = 0;
+  fprintf(stderr, "Startup window created; IME stopped; creating renderer\n");
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
   if (!renderer)
-    return -1;
+    return startup_failed("SDL_CreateRenderer");
   SDL_RenderSetLogicalSize(renderer, 1280, 720);
   int alpha = 0;
   SDL_GL_GetAttribute(SDL_GL_ALPHA_SIZE, &alpha);
-  if (alpha < 8)
-    return -1;
+  if (alpha < 8) {
+    fprintf(stderr, "Startup alpha_bits=%d (requires 8)\n", alpha);
+    return startup_failed("EGL alpha");
+  }
   fprintf(stderr, "SDL renderer=%s alpha=%d\n", SDL_GetCurrentVideoDriver(),
           alpha);
   SDL_GameControllerAddMappingsFromFile("assets/gamecontrollerdb.txt");
   SDL_GameControllerAddMappingsFromFile("assets/gamecontrollerdb_extra.txt");
-  SDL_StartTextInput();
+  fprintf(stderr, "Startup probing input devices\n");
   probe_devices();
+  fprintf(stderr, "Startup scanning controllers\n");
   client_input_scan();
+  fprintf(stderr, "Startup loading SS4S modules (NDL init deferred until playback)\n");
   SS4S_Config config = {.audioDriver = "ndl-webos5",
                         .videoDriver = "ndl-webos5",
                         .loggingFunction = ss_log};
@@ -80,7 +97,18 @@ int rp_open(void) {
   ss_ready = 1;
   if (SS4S_PostInit(0, NULL) != 0)
     return -1;
+  fprintf(stderr, "Startup platform ready\n");
   return 0;
+}
+void rp_text_input(int active) {
+  active = active != 0;
+  if (active == text_input_active)
+    return;
+  if (active)
+    SDL_StartTextInput();
+  else
+    SDL_StopTextInput();
+  text_input_active = active;
 }
 int rp_poll(RpEvent *out) {
   memset(out, 0, sizeof(*out));
@@ -179,7 +207,16 @@ void rp_text(int row, const char *s, int selected) {
   SDL_SetRenderDrawColor(renderer, 245, 245, 245, 255);
   SDLTest_DrawString(renderer, 12, y, s);
 }
-void rp_present(void) { SDL_RenderPresent(renderer); }
+void rp_present(void) {
+  static int first = 1;
+  if (first)
+    fprintf(stderr, "Startup presenting first UI frame\n");
+  SDL_RenderPresent(renderer);
+  if (first) {
+    fprintf(stderr, "Startup first UI frame submitted; event loop running\n");
+    first = 0;
+  }
+}
 void rp_media_close(void) {
   if (audio_open) {
     SS4S_PlayerAudioClose(player);

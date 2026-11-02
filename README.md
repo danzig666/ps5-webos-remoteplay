@@ -2,11 +2,13 @@
 
 An ARMv7 native client for LG OLED C2/C3, built around pinned PS5Upload Remote Play protocol code and Aurora SDL3/SS4S/NDL platform code. Pairing and streaming connect directly to the PS5 over the LAN. No Sony login, desktop engine, HTTP/WebSocket relay, or always-on PC is included.
 
-**Development build 0.2.0. M1–M6 software paths are implemented; real PS5 sessions and C2/C3 hardware validation have not been performed.** Hardware tests are deferred by the user's instruction, not treated as passed. This is not a verified release. See [implementation status and limits](docs/implementation-status.md).
+**Development build 0.2.0. M1–M6 software paths are implemented; real PS5 sessions and successful C2/C3 validation remain pending; a user-reported C3 launch failure is recorded below.** Hardware tests are deferred by the user's instruction, not treated as passed. This is not a verified release. See [implementation status and limits](docs/implementation-status.md).
 
 Latest [software bug-check report](docs/bug-check-2026-11-02.md): seven findings fixed, 147 Rust tests passing, native sanitizer checks and reproducible ARM/IPK builds. The updated `v0.2.0-dev.2` IPK includes these fixes.
 
 ## Downloads
+
+**C3 startup correction:** [Download dev.3 IPK](https://raw.githubusercontent.com/danzig666/ps5-webos-remoteplay/v0.2.0-dev.3/artifacts/v0.2.0-dev.3/org.homebrew.ps5remote_0.2.0_arm.ipk) · [Cause, fixes and retest instructions](artifacts/v0.2.0-dev.3/README.md). The user-provided dev.2 log confirmed a storage-directory rejection before window initialization. Successful launch with dev.3 is awaiting hardware retest.
 
 [Download the updated IPK (v0.2.0-dev.2)](https://raw.githubusercontent.com/danzig666/ps5-webos-remoteplay/v0.2.0-dev.2/artifacts/v0.2.0-dev.2/org.homebrew.ps5remote_0.2.0_arm.ipk) · [Checksum and build details](artifacts/v0.2.0-dev.2/README.md). Package version is still 0.2.0.
 
@@ -78,7 +80,7 @@ Rust owns private configuration, lifecycle/UI state, pairing, stream workers, bo
 
 The statistics distinguish received/submitted frames, queue drops and feed errors. Presented FPS, input-to-photon latency and physical effects remain unknown. Tests include upstream protocol fixtures/loopback peers, credential permission/symlink/cancellation checks, headless UI masking/input release, queue overflow/reordering, a two-hour **virtual-time** queue soak, HID report bytes in an in-memory sink, and package/ABI/reproducibility audits. A virtual soak does not measure real-time decoder performance.
 
-Read [the hardware test matrix](docs/client-hardware-tests.md) and [capability CSV](docs/client-capability-matrix.csv), [implementation status](docs/implementation-status.md), and [source/license notices](THIRD_PARTY.md). Main logs are `/tmp/ps5remote.log` and one previous-launch log. Never attach `pairing.json` or unmasked account/PIN data to a report. Private data is under the SDL preference directory; `PS5REMOTE_DATA_DIR` is an optional explicit directory override for controlled diagnostics.
+Read [the hardware test matrix](docs/client-hardware-tests.md) and [capability CSV](docs/client-capability-matrix.csv), [implementation status](docs/implementation-status.md), and [source/license notices](THIRD_PARTY.md). Main logs are `/tmp/ps5remote.log` and one previous-launch log. Never attach `pairing.json` or unmasked account/PIN data to a report. Private data is under a private/ child of the SDL preference directory; `PS5REMOTE_DATA_DIR` is an optional explicit directory override for controlled diagnostics.
 
 M0 remains GPLv3; the separate combined client and the new Rust app/protocol integration are AGPLv3. Pinned sources, recorded patches, dependency locks and license notices are provided for review/rebuilding. Source and the original development artifacts are published in the linked repository. No TV deployment, PS5 account modification or physical hardware test was performed.
 

@@ -9,6 +9,7 @@ use std::{
     ffi::{c_char, CStr},
 };
 thread_local! {pub static LINES:RefCell<Vec<String>>=const{RefCell::new(Vec::new())};}
+thread_local! {pub static TEXT_INPUT: std::cell::Cell<i32> = const { std::cell::Cell::new(0) };}
 type Feedback = (u8, u8, Option<[u8; 3]>, Option<[u8; 22]>);
 thread_local! {pub static FEEDBACK: RefCell<Vec<Feedback>> = const { RefCell::new(Vec::new()) };}
 #[no_mangle]
@@ -30,6 +31,10 @@ pub extern "C" fn rp_text(_: i32, s: *const c_char, _: i32) {
 }
 #[no_mangle]
 pub extern "C" fn rp_present() {}
+#[no_mangle]
+pub extern "C" fn rp_text_input(active: i32) {
+    TEXT_INPUT.with(|value| value.set(active));
+}
 #[no_mangle]
 pub extern "C" fn rp_close() {}
 #[no_mangle]
