@@ -6,7 +6,7 @@ root=pathlib.Path(__file__).resolve().parents[1]
 out=root/'build/release-source/ps5remote-webos'
 if out.exists():shutil.rmtree(out)
 out.mkdir(parents=True)
-exclude={'build','target','dist','upstream','.tools','.git','__pycache__'}
+exclude={'build','target','dist','artifacts','upstream','.tools','.git','__pycache__'}
 for current,dirs,files in os.walk(root):
     dirs[:]=[d for d in dirs if d not in exclude]
     rel=pathlib.Path(current).relative_to(root)

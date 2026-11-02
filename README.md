@@ -4,6 +4,10 @@ An ARMv7 native client for LG OLED C2/C3, built around pinned PS5Upload Remote P
 
 **Development build 0.2.0. M1–M6 software paths are implemented; real PS5 sessions and C2/C3 hardware validation have not been performed.** Hardware tests are deferred by the user's instruction, not treated as passed. This is not a verified release. See [implementation status and limits](docs/implementation-status.md).
 
+## Downloads
+
+[Development build downloads](https://github.com/danzig666/ps5-webos-remoteplay/tree/main/artifacts/v0.2.0-dev.1) include the native client IPK, the source archive with dependencies, the preserved M0 prototype, and SHA256SUMS. These are development builds with physical hardware testing deferred. The exact checksummed artifacts are stored in the repository because release-asset uploads were unavailable through the connected credentials.
+
 ## Build and install
 
 Linux x86_64 prerequisites: Python 3.11+ with pip, curl, git, patch, make, gcc, node/npm, ar/readelf. Allow about 3 GB of tools/dependency space plus build caches. Exact tool, SDK, SDL archive and Git revisions are recorded in `tools.lock.json`, `upstream.lock.json` and `Cargo.lock`.
