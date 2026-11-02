@@ -1,0 +1,450 @@
+Verified opus 65c1d2f78b9f2fb20082c38cbe47c951ad5839345876e46941612ee87f9a7ce1
+-- Found Git: /usr/local/bin/git (found version "2.52.0")
+-- Opus package version from package_version file: 1.5.2
+-- Opus project version: 1.5.2
+-- The C compiler identification is GNU 16.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /workspace/.m0-tools/arm-webos-linux-gnueabi_sdk-buildroot/bin/arm-webos-linux-gnueabi-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Performing Test VLA_SUPPORTED
+-- Performing Test VLA_SUPPORTED -- success
+-- Looking for alloca.h
+-- Looking for alloca.h - found
+-- Looking for alloca
+-- Looking for alloca - found
+-- Looking for floor in m
+-- Looking for floor in m - found
+-- Looking for lrintf
+-- Looking for lrintf - found
+-- Looking for lrint
+-- Looking for lrint - found
+-- Check NEON support by compiler
+-- Looking for arm_neon.h
+-- Looking for arm_neon.h - found
+-- Performing Test FAST_MATH_SUPPORTED
+-- Performing Test FAST_MATH_SUPPORTED - Success
+-- Performing Test STACK_PROTECTOR_SUPPORTED
+-- Performing Test STACK_PROTECTOR_SUPPORTED - Success
+-- Performing Test HIDDEN_VISIBILITY_SUPPORTED
+-- Performing Test HIDDEN_VISIBILITY_SUPPORTED - Success
+-- Performing Test Wall_SUPPORTED
+-- Performing Test Wall_SUPPORTED - Success
+-- Performing Test W_SUPPORTED
+-- Performing Test W_SUPPORTED - Success
+-- Performing Test Wstrictprototypes_SUPPORTED
+-- Performing Test Wstrictprototypes_SUPPORTED - Success
+-- Performing Test Wextra_SUPPORTED
+-- Performing Test Wextra_SUPPORTED - Success
+-- Performing Test Wcastalign_SUPPORTED
+-- Performing Test Wcastalign_SUPPORTED - Success
+-- Performing Test Wnestedexterns_SUPPORTED
+-- Performing Test Wnestedexterns_SUPPORTED - Success
+-- Performing Test Wshadow_SUPPORTED
+-- Performing Test Wshadow_SUPPORTED - Success
+-- The following features have been enabled:
+
+ * OPUS_ENABLE_FLOAT_API, compile with the floating point API (for machines with float library).
+ * OPUS_HARDENING, run-time checks that are cheap and safe for use in production.
+ * OPUS_INSTALL_PKG_CONFIG_MODULE, install pkg-config module.
+ * OPUS_INSTALL_CMAKE_CONFIG_MODULE, install CMake package config module.
+ * OPUS_VAR_ARRAYS, use variable length arrays for stack arrays.
+ * OPUS_STACK_PROTECTOR, use stack protection.
+ * OPUS_FORTIFY_SOURCE, add protection against buffer overflows.
+
+-- The following OPTIONAL packages have been found:
+
+ * Git
+
+-- The following features have been disabled:
+
+ * OPUS_BUILD_SHARED_LIBRARY, build shared library.
+ * OPUS_BUILD_TESTING, build tests.
+ * OPUS_CUSTOM_MODES, enable non-Opus modes, e.g. 44.1 kHz & 2^n frames.
+ * OPUS_BUILD_PROGRAMS, build programs.
+ * OPUS_DISABLE_INTRINSICS, disable all intrinsics optimizations.
+ * OPUS_FIXED_POINT, compile as fixed-point (for machines without a fast enough FPU).
+ * OPUS_FLOAT_APPROX, enable floating point approximations (Ensure your platform supports IEEE 754 before enabling).
+ * OPUS_ASSERTIONS, additional software error checking.
+ * OPUS_FUZZING, causes the encoder to make random decisions (do not use in production).
+ * OPUS_CHECK_ASM, enable bit-exactness checks between optimized and c implementations.
+ * OPUS_DNN_FLOAT_DEBUG, Run DNN computations as float for debugging purposes.
+ * OPUS_DRED, enable DRED.
+ * OPUS_OSCE, enable OSCE.
+ * OPUS_FIXED_POINT_DEBUG, debug fixed-point implementation.
+ * OPUS_USE_ALLOCA, use alloca for stack arrays (on non-C99 compilers).
+ * OPUS_NONTHREADSAFE_PSEUDOSTACK, use a non threadsafe pseudostack when neither variable length arrays or alloca is supported.
+ * OPUS_FAST_MATH, enable fast math (unsupported and discouraged use, as code is not well tested with this build option).
+
+-- OPUS_MAY_HAVE_NEON enabling runtime detection
+-- Configuring done (1.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/opus
+[  1%] Building C object CMakeFiles/opus.dir/src/opus.c.o
+[  1%] Building C object CMakeFiles/opus.dir/src/opus_decoder.c.o
+[  2%] Building C object CMakeFiles/opus.dir/src/opus_encoder.c.o
+[  2%] Building C object CMakeFiles/opus.dir/src/extensions.c.o
+[  3%] Building C object CMakeFiles/opus.dir/src/opus_multistream.c.o
+[  4%] Building C object CMakeFiles/opus.dir/src/opus_multistream_encoder.c.o
+[  4%] Building C object CMakeFiles/opus.dir/src/opus_multistream_decoder.c.o
+[  5%] Building C object CMakeFiles/opus.dir/src/repacketizer.c.o
+[  6%] Building C object CMakeFiles/opus.dir/src/opus_projection_encoder.c.o
+[  6%] Building C object CMakeFiles/opus.dir/src/opus_projection_decoder.c.o
+[  7%] Building C object CMakeFiles/opus.dir/src/mapping_matrix.c.o
+[  8%] Building C object CMakeFiles/opus.dir/src/analysis.c.o
+[  8%] Building C object CMakeFiles/opus.dir/src/mlp.c.o
+[  9%] Building C object CMakeFiles/opus.dir/src/mlp_data.c.o
+[ 10%] Building C object CMakeFiles/opus.dir/silk/CNG.c.o
+[ 10%] Building C object CMakeFiles/opus.dir/silk/code_signs.c.o
+[ 11%] Building C object CMakeFiles/opus.dir/silk/init_decoder.c.o
+[ 12%] Building C object CMakeFiles/opus.dir/silk/decode_core.c.o
+[ 12%] Building C object CMakeFiles/opus.dir/silk/decode_frame.c.o
+[ 13%] Building C object CMakeFiles/opus.dir/silk/decode_parameters.c.o
+[ 14%] Building C object CMakeFiles/opus.dir/silk/decode_indices.c.o
+[ 14%] Building C object CMakeFiles/opus.dir/silk/decode_pulses.c.o
+[ 15%] Building C object CMakeFiles/opus.dir/silk/decoder_set_fs.c.o
+[ 16%] Building C object CMakeFiles/opus.dir/silk/dec_API.c.o
+[ 17%] Building C object CMakeFiles/opus.dir/silk/enc_API.c.o
+[ 17%] Building C object CMakeFiles/opus.dir/silk/encode_indices.c.o
+[ 18%] Building C object CMakeFiles/opus.dir/silk/encode_pulses.c.o
+[ 19%] Building C object CMakeFiles/opus.dir/silk/gain_quant.c.o
+[ 19%] Building C object CMakeFiles/opus.dir/silk/interpolate.c.o
+[ 20%] Building C object CMakeFiles/opus.dir/silk/LP_variable_cutoff.c.o
+[ 21%] Building C object CMakeFiles/opus.dir/silk/NLSF_decode.c.o
+[ 21%] Building C object CMakeFiles/opus.dir/silk/NSQ.c.o
+[ 22%] Building C object CMakeFiles/opus.dir/silk/NSQ_del_dec.c.o
+[ 23%] Building C object CMakeFiles/opus.dir/silk/PLC.c.o
+[ 23%] Building C object CMakeFiles/opus.dir/silk/shell_coder.c.o
+[ 24%] Building C object CMakeFiles/opus.dir/silk/tables_gain.c.o
+[ 25%] Building C object CMakeFiles/opus.dir/silk/tables_LTP.c.o
+[ 25%] Building C object CMakeFiles/opus.dir/silk/tables_NLSF_CB_NB_MB.c.o
+[ 26%] Building C object CMakeFiles/opus.dir/silk/tables_NLSF_CB_WB.c.o
+[ 27%] Building C object CMakeFiles/opus.dir/silk/tables_other.c.o
+[ 27%] Building C object CMakeFiles/opus.dir/silk/tables_pitch_lag.c.o
+[ 28%] Building C object CMakeFiles/opus.dir/silk/tables_pulses_per_block.c.o
+[ 29%] Building C object CMakeFiles/opus.dir/silk/VAD.c.o
+[ 29%] Building C object CMakeFiles/opus.dir/silk/control_audio_bandwidth.c.o
+[ 30%] Building C object CMakeFiles/opus.dir/silk/quant_LTP_gains.c.o
+[ 31%] Building C object CMakeFiles/opus.dir/silk/VQ_WMat_EC.c.o
+[ 31%] Building C object CMakeFiles/opus.dir/silk/HP_variable_cutoff.c.o
+[ 32%] Building C object CMakeFiles/opus.dir/silk/NLSF_encode.c.o
+[ 33%] Building C object CMakeFiles/opus.dir/silk/NLSF_VQ.c.o
+[ 34%] Building C object CMakeFiles/opus.dir/silk/NLSF_unpack.c.o
+[ 34%] Building C object CMakeFiles/opus.dir/silk/NLSF_del_dec_quant.c.o
+[ 35%] Building C object CMakeFiles/opus.dir/silk/process_NLSFs.c.o
+[ 36%] Building C object CMakeFiles/opus.dir/silk/stereo_LR_to_MS.c.o
+[ 36%] Building C object CMakeFiles/opus.dir/silk/stereo_MS_to_LR.c.o
+[ 37%] Building C object CMakeFiles/opus.dir/silk/check_control_input.c.o
+[ 38%] Building C object CMakeFiles/opus.dir/silk/control_SNR.c.o
+[ 38%] Building C object CMakeFiles/opus.dir/silk/init_encoder.c.o
+[ 39%] Building C object CMakeFiles/opus.dir/silk/control_codec.c.o
+[ 40%] Building C object CMakeFiles/opus.dir/silk/A2NLSF.c.o
+[ 40%] Building C object CMakeFiles/opus.dir/silk/ana_filt_bank_1.c.o
+[ 41%] Building C object CMakeFiles/opus.dir/silk/biquad_alt.c.o
+[ 42%] Building C object CMakeFiles/opus.dir/silk/bwexpander_32.c.o
+[ 42%] Building C object CMakeFiles/opus.dir/silk/bwexpander.c.o
+[ 43%] Building C object CMakeFiles/opus.dir/silk/debug.c.o
+[ 44%] Building C object CMakeFiles/opus.dir/silk/decode_pitch.c.o
+[ 44%] Building C object CMakeFiles/opus.dir/silk/inner_prod_aligned.c.o
+[ 45%] Building C object CMakeFiles/opus.dir/silk/lin2log.c.o
+[ 46%] Building C object CMakeFiles/opus.dir/silk/log2lin.c.o
+[ 46%] Building C object CMakeFiles/opus.dir/silk/LPC_analysis_filter.c.o
+[ 47%] Building C object CMakeFiles/opus.dir/silk/LPC_inv_pred_gain.c.o
+[ 48%] Building C object CMakeFiles/opus.dir/silk/table_LSF_cos.c.o
+[ 48%] Building C object CMakeFiles/opus.dir/silk/NLSF2A.c.o
+[ 49%] Building C object CMakeFiles/opus.dir/silk/NLSF_stabilize.c.o
+[ 50%] Building C object CMakeFiles/opus.dir/silk/NLSF_VQ_weights_laroia.c.o
+[ 51%] Building C object CMakeFiles/opus.dir/silk/pitch_est_tables.c.o
+[ 52%] Building C object CMakeFiles/opus.dir/silk/resampler.c.o
+[ 52%] Building C object CMakeFiles/opus.dir/silk/resampler_down2_3.c.o
+[ 53%] Building C object CMakeFiles/opus.dir/silk/resampler_down2.c.o
+[ 53%] Building C object CMakeFiles/opus.dir/silk/resampler_private_AR2.c.o
+[ 54%] Building C object CMakeFiles/opus.dir/silk/resampler_private_down_FIR.c.o
+[ 55%] Building C object CMakeFiles/opus.dir/silk/resampler_private_IIR_FIR.c.o
+[ 55%] Building C object CMakeFiles/opus.dir/silk/resampler_private_up2_HQ.c.o
+[ 56%] Building C object CMakeFiles/opus.dir/silk/resampler_rom.c.o
+[ 57%] Building C object CMakeFiles/opus.dir/silk/sigm_Q15.c.o
+[ 57%] Building C object CMakeFiles/opus.dir/silk/sort.c.o
+[ 58%] Building C object CMakeFiles/opus.dir/silk/sum_sqr_shift.c.o
+[ 59%] Building C object CMakeFiles/opus.dir/silk/stereo_decode_pred.c.o
+[ 59%] Building C object CMakeFiles/opus.dir/silk/stereo_encode_pred.c.o
+[ 60%] Building C object CMakeFiles/opus.dir/silk/stereo_quant_pred.c.o
+[ 61%] Building C object CMakeFiles/opus.dir/silk/stereo_find_predictor.c.o
+[ 61%] Building C object CMakeFiles/opus.dir/silk/LPC_fit.c.o
+[ 62%] Building C object CMakeFiles/opus.dir/celt/bands.c.o
+[ 63%] Building C object CMakeFiles/opus.dir/celt/celt.c.o
+[ 63%] Building C object CMakeFiles/opus.dir/celt/celt_encoder.c.o
+[ 64%] Building C object CMakeFiles/opus.dir/celt/celt_decoder.c.o
+[ 65%] Building C object CMakeFiles/opus.dir/celt/cwrs.c.o
+[ 65%] Building C object CMakeFiles/opus.dir/celt/entcode.c.o
+[ 66%] Building C object CMakeFiles/opus.dir/celt/entdec.c.o
+[ 67%] Building C object CMakeFiles/opus.dir/celt/entenc.c.o
+[ 68%] Building C object CMakeFiles/opus.dir/celt/kiss_fft.c.o
+[ 68%] Building C object CMakeFiles/opus.dir/celt/laplace.c.o
+[ 69%] Building C object CMakeFiles/opus.dir/celt/mathops.c.o
+[ 70%] Building C object CMakeFiles/opus.dir/celt/mdct.c.o
+[ 70%] Building C object CMakeFiles/opus.dir/celt/modes.c.o
+[ 71%] Building C object CMakeFiles/opus.dir/celt/pitch.c.o
+[ 72%] Building C object CMakeFiles/opus.dir/celt/celt_lpc.c.o
+[ 72%] Building C object CMakeFiles/opus.dir/celt/quant_bands.c.o
+[ 73%] Building C object CMakeFiles/opus.dir/celt/rate.c.o
+[ 74%] Building C object CMakeFiles/opus.dir/celt/vq.c.o
+[ 74%] Building C object CMakeFiles/opus.dir/silk/float/apply_sine_window_FLP.c.o
+[ 75%] Building C object CMakeFiles/opus.dir/silk/float/corrMatrix_FLP.c.o
+[ 76%] Building C object CMakeFiles/opus.dir/silk/float/encode_frame_FLP.c.o
+[ 76%] Building C object CMakeFiles/opus.dir/silk/float/find_LPC_FLP.c.o
+[ 77%] Building C object CMakeFiles/opus.dir/silk/float/find_LTP_FLP.c.o
+[ 78%] Building C object CMakeFiles/opus.dir/silk/float/find_pitch_lags_FLP.c.o
+[ 78%] Building C object CMakeFiles/opus.dir/silk/float/find_pred_coefs_FLP.c.o
+[ 79%] Building C object CMakeFiles/opus.dir/silk/float/LPC_analysis_filter_FLP.c.o
+[ 80%] Building C object CMakeFiles/opus.dir/silk/float/LTP_analysis_filter_FLP.c.o
+[ 80%] Building C object CMakeFiles/opus.dir/silk/float/LTP_scale_ctrl_FLP.c.o
+[ 81%] Building C object CMakeFiles/opus.dir/silk/float/noise_shape_analysis_FLP.c.o
+[ 82%] Building C object CMakeFiles/opus.dir/silk/float/process_gains_FLP.c.o
+[ 82%] Building C object CMakeFiles/opus.dir/silk/float/regularize_correlations_FLP.c.o
+[ 83%] Building C object CMakeFiles/opus.dir/silk/float/residual_energy_FLP.c.o
+[ 84%] Building C object CMakeFiles/opus.dir/silk/float/warped_autocorrelation_FLP.c.o
+[ 85%] Building C object CMakeFiles/opus.dir/silk/float/wrappers_FLP.c.o
+[ 85%] Building C object CMakeFiles/opus.dir/silk/float/autocorrelation_FLP.c.o
+[ 86%] Building C object CMakeFiles/opus.dir/silk/float/burg_modified_FLP.c.o
+[ 87%] Building C object CMakeFiles/opus.dir/silk/float/bwexpander_FLP.c.o
+[ 87%] Building C object CMakeFiles/opus.dir/silk/float/energy_FLP.c.o
+[ 88%] Building C object CMakeFiles/opus.dir/silk/float/inner_product_FLP.c.o
+[ 89%] Building C object CMakeFiles/opus.dir/silk/float/k2a_FLP.c.o
+[ 89%] Building C object CMakeFiles/opus.dir/silk/float/LPC_inv_pred_gain_FLP.c.o
+[ 90%] Building C object CMakeFiles/opus.dir/silk/float/pitch_analysis_core_FLP.c.o
+[ 91%] Building C object CMakeFiles/opus.dir/silk/float/scale_copy_vector_FLP.c.o
+[ 91%] Building C object CMakeFiles/opus.dir/silk/float/scale_vector_FLP.c.o
+[ 92%] Building C object CMakeFiles/opus.dir/silk/float/schur_FLP.c.o
+[ 93%] Building C object CMakeFiles/opus.dir/silk/float/sort_FLP.c.o
+/workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/deps/opus-1.5.2/silk/float/pitch_analysis_core_FLP.c: In function ‘silk_pitch_analysis_core_FLP’:
+/workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/deps/opus-1.5.2/silk/float/pitch_analysis_core_FLP.c:157:5: warning: ‘frame_8_FIX’ may be used uninitialized [-Wmaybe-uninitialized]
+  157 |     silk_resampler_down2( filt_state, frame_4_FIX, frame_8_FIX, frame_length_8kHz );
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/deps/opus-1.5.2/silk/float/SigProc_FLP.h:31,
+                 from /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/deps/opus-1.5.2/silk/float/pitch_analysis_core_FLP.c:35:
+/workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/deps/opus-1.5.2/silk/SigProc_FIX.h:82:6: note: by argument 3 of type ‘const opus_int16 *’ {aka ‘const short int *’} to ‘silk_resampler_down2’ declared here
+   82 | void silk_resampler_down2(
+      |      ^~~~~~~~~~~~~~~~~~~~
+/workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/deps/opus-1.5.2/silk/float/pitch_analysis_core_FLP.c:85:16: note: ‘frame_8_FIX’ declared here
+   85 |     opus_int16 frame_8_FIX[ PE_MAX_FRAME_LENGTH_MS * 8 ];
+      |                ^~~~~~~~~~~
+[ 93%] Building C object CMakeFiles/opus.dir/celt/arm/armcpu.c.o
+[ 94%] Building C object CMakeFiles/opus.dir/celt/arm/arm_celt_map.c.o
+[ 95%] Building C object CMakeFiles/opus.dir/silk/arm/arm_silk_map.c.o
+[ 95%] Building C object CMakeFiles/opus.dir/celt/arm/celt_neon_intr.c.o
+[ 96%] Building C object CMakeFiles/opus.dir/celt/arm/pitch_neon_intr.c.o
+[ 97%] Building C object CMakeFiles/opus.dir/silk/arm/biquad_alt_neon_intr.c.o
+[ 97%] Building C object CMakeFiles/opus.dir/silk/arm/LPC_inv_pred_gain_neon_intr.c.o
+[ 98%] Building C object CMakeFiles/opus.dir/silk/arm/NSQ_del_dec_neon_intr.c.o
+[ 99%] Building C object CMakeFiles/opus.dir/silk/arm/NSQ_neon.c.o
+[100%] Linking C static library libopus.a
+[100%] Built target opus
+-- Install configuration: "Release"
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/deps-root/usr/lib/libopus.a
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/deps-root/usr/include/opus/opus.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/deps-root/usr/include/opus/opus_defines.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/deps-root/usr/include/opus/opus_multistream.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/deps-root/usr/include/opus/opus_projection.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/deps-root/usr/include/opus/opus_types.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/deps-root/usr/lib/pkgconfig/opus.pc
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/deps-root/usr/lib/cmake/Opus/OpusTargets.cmake
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/deps-root/usr/lib/cmake/Opus/OpusTargets-release.cmake
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/deps-root/usr/lib/cmake/Opus/OpusConfig.cmake
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/deps-root/usr/lib/cmake/Opus/OpusConfigVersion.cmake
+Pinned build input revisions verified
+Verified sdl3_webos e3e99a88cdd88b246d68c3cea42dd0f7c4ac635563ed5352d3bf1a725dc3ac4b
+patching file src/sdl2_compat.c
+Hunk #1 succeeded at 2183 (offset 7 lines).
+Hunk #2 succeeded at 2218 (offset 7 lines).
+patching file CMakeLists.txt
+-- The C compiler identification is GNU 16.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /workspace/.m0-tools/arm-webos-linux-gnueabi_sdk-buildroot/bin/arm-webos-linux-gnueabi-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Performing Test CHECK_CPU_ARCHITECTURE_X64
+-- Performing Test CHECK_CPU_ARCHITECTURE_X64 - Failed
+-- Performing Test CHECK_CPU_ARCHITECTURE_X86
+-- Performing Test CHECK_CPU_ARCHITECTURE_X86 - Failed
+-- Performing Test CHECK_CPU_ARCHITECTURE_ARM64
+-- Performing Test CHECK_CPU_ARCHITECTURE_ARM64 - Failed
+-- Performing Test CHECK_CPU_ARCHITECTURE_ARM32
+-- Performing Test CHECK_CPU_ARCHITECTURE_ARM32 - Success
+-- Performing Test HAVE_OPENGLES_V1
+-- Performing Test HAVE_OPENGLES_V1 - Success
+-- Performing Test HAVE_OPENGLES_V2
+-- Performing Test HAVE_OPENGLES_V2 - Success
+-- Performing Test HAVE_NO_UNDEFINED
+-- Performing Test HAVE_NO_UNDEFINED - Success
+-- Found Git: /usr/local/bin/git (found version "2.52.0")
+-- Performing Test HAVE_GCC_WALL
+-- Performing Test HAVE_GCC_WALL - Success
+-- Performing Test HAVE_GCC_WUNDEF
+-- Performing Test HAVE_GCC_WUNDEF - Success
+-- Performing Test HAVE_GCC_WDOCUMENTATION
+-- Performing Test HAVE_GCC_WDOCUMENTATION - Failed
+-- Performing Test HAVE_GCC_WDOCUMENTATION_UNKNOWN_COMMAND
+-- Performing Test HAVE_GCC_WDOCUMENTATION_UNKNOWN_COMMAND - Failed
+-- Performing Test HAVE_GCC_COMMENT_BLOCK_COMMANDS
+-- Performing Test HAVE_GCC_COMMENT_BLOCK_COMMANDS - Failed
+-- Performing Test HAVE_CLANG_COMMENT_BLOCK_COMMANDS
+-- Performing Test HAVE_CLANG_COMMENT_BLOCK_COMMANDS - Failed
+-- Performing Test HAVE_GCC_WSHADOW
+-- Performing Test HAVE_GCC_WSHADOW - Success
+-- Performing Test HAVE_GCC_WUNUSED_LOCAL_TYPEDEFS
+-- Performing Test HAVE_GCC_WUNUSED_LOCAL_TYPEDEFS - Success
+-- Performing Test COMPILER_SUPPORTS_FDIAGNOSTICS_COLOR_ALWAYS
+-- Performing Test COMPILER_SUPPORTS_FDIAGNOSTICS_COLOR_ALWAYS - Success
+-- Performing Test HAVE_FVISIBILITY_HIDDEN
+-- Performing Test HAVE_FVISIBILITY_HIDDEN - Success
+-- Performing Test HAVE_WDECLARATION_AFTER_STATEMENT
+-- Performing Test HAVE_WDECLARATION_AFTER_STATEMENT - Success
+-- Looking for winapifamily.h
+-- Looking for winapifamily.h - not found
+-- Looking for immintrin.h
+-- Looking for immintrin.h - not found
+-- X11 support disabled
+-- Configuring done (0.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl2-compat
+[  9%] Building C object CMakeFiles/SDL2.dir/src/sdl2_compat.c.o
+[  9%] Building C object CMakeFiles/SDL2main.dir/src/SDLmain/dummy/SDL_dummy_main.c.o
+[ 13%] Linking C static library libSDL2main.a
+[ 13%] Built target SDL2main
+[ 18%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_assert.c.o
+[ 22%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_common.c.o
+[ 27%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_compare.c.o
+[ 31%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_crc32.c.o
+[ 36%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_font.c.o
+[ 40%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_fuzzer.c.o
+[ 45%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_harness.c.o
+[ 50%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_imageBlit.c.o
+[ 54%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_imageBlitBlend.c.o
+[ 59%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_imageFace.c.o
+[ 63%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_imagePrimitives.c.o
+[ 68%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_imagePrimitivesBlend.c.o
+[ 72%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_log.c.o
+[ 77%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_md5.c.o
+[ 81%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_memory.c.o
+[ 86%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_random.c.o
+[ 90%] Linking C static library libSDL2_test.a
+[ 90%] Built target SDL2_test
+[ 95%] Building C object CMakeFiles/SDL2.dir/src/dynapi/SDL_dynapi.c.o
+[100%] Linking C shared library libSDL2-webos.so
+[100%] Built target SDL2
+-- Install configuration: "Release"
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/lib/libSDL2-webos.so.0.3200.74
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/lib/libSDL2-webos.so.0
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/lib/libSDL2-webos.so
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/SDL2Targets.cmake
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/SDL2Targets-release.cmake
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/lib/libSDL2main.a
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/SDL2mainTargets.cmake
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/SDL2mainTargets-release.cmake
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/lib/libSDL2_test.a
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/SDL2_testTargets.cmake
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/SDL2_testTargets-release.cmake
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/share/licenses/sdl2-compat/LICENSE.txt
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/sdl2-config.cmake
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/sdl2-config-version.cmake
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/SDL2Config.cmake
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/SDL2ConfigVersion.cmake
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_assert.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_atomic.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_audio.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_bits.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_blendmode.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_clipboard.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_android.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_emscripten.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_iphoneos.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_macosx.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_minimal.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_ngage.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_os2.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_pandora.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_windows.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_wingdk.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_winrt.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_xbox.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_copying.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_cpuinfo.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_egl.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_endian.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_error.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_events.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_filesystem.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_gamecontroller.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_gesture.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_guid.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_haptic.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_hidapi.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_hints.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_joystick.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_keyboard.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_keycode.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_loadso.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_locale.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_log.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_main.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_messagebox.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_metal.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_misc.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_mouse.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_mutex.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_name.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_opengl.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_opengl_glext.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_opengles.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_opengles2.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_opengles2_gl2.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_opengles2_gl2ext.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_opengles2_gl2platform.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_opengles2_khrplatform.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_pixels.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_platform.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_power.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_quit.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_rect.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_render.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_rwops.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_scancode.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_sensor.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_shape.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_stdinc.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_surface.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_system.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_syswm.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_assert.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_common.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_compare.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_crc32.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_font.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_fuzzer.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_harness.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_images.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_log.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_md5.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_memory.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_random.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_thread.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_timer.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_touch.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_types.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_version.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_video.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_vulkan.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/begin_code.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/close_code.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_unix.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_revision.h
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/lib/pkgconfig/sdl2-compat.pc
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/bin/sdl2-config
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/lib/libSDL2.so
+-- Installing: /workspace/ps5remote-webos/build/release-source/ps5remote-webos/build/sdl-runtime/share/aclocal/sdl2.m4

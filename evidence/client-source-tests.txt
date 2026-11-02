@@ -1,0 +1,236 @@
+   Compiling subtle v2.6.1
+   Compiling zeroize v1.9.1
+   Compiling typenum v1.20.1
+   Compiling rand_core v0.10.1
+   Compiling cmov v0.5.4
+   Compiling cpubits v0.1.1
+   Compiling const-oid v0.10.2
+   Compiling autocfg v1.5.1
+   Compiling ctutils v0.4.7
+   Compiling ff v0.14.0
+   Compiling proc-macro2 v1.0.107
+   Compiling cpufeatures v0.3.1
+   Compiling num-traits v0.2.19
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.27
+   Compiling group v0.14.0
+   Compiling der v0.8.3
+   Compiling hybrid-array v0.4.15
+   Compiling serde_core v1.0.229
+   Compiling libc v0.2.191
+   Compiling base16ct v1.0.0
+   Compiling crypto-common v0.2.2
+   Compiling block-buffer v0.12.1
+   Compiling inout v0.2.5
+   Compiling crypto-bigint v0.7.10
+   Compiling sec1 v0.8.1
+   Compiling zmij v1.0.23
+   Compiling syn v3.0.9
+   Compiling digest v0.11.3
+   Compiling hmac v0.13.0
+   Compiling cipher v0.5.2
+   Compiling hkdf v0.13.0
+   Compiling universal-hash v0.6.1
+   Compiling polyval v0.7.3
+   Compiling serde v1.0.229
+   Compiling cfg-if v1.0.5
+   Compiling serde_json v1.0.154
+   Compiling getrandom v0.4.3
+   Compiling anyhow v1.0.104
+   Compiling primefield v0.14.0
+   Compiling wnaf v0.14.1
+   Compiling elliptic-curve v0.14.3
+   Compiling serde_derive v1.0.229
+   Compiling ghash v0.6.0
+   Compiling primeorder v0.14.0
+   Compiling aes v0.9.3
+   Compiling ctr v0.10.1
+   Compiling aead v0.6.1
+   Compiling memchr v2.8.3
+   Compiling itoa v1.0.18
+   Compiling aes-gcm v0.11.1
+   Compiling k256 v0.14.0
+   Compiling sha2 v0.11.1
+   Compiling socket2 v0.6.5
+   Compiling cfb-mode v0.9.1
+   Compiling base64 v0.23.1
+   Compiling webos-m0 v0.1.0 (/workspace/ps5remote-webos/build/release-source/ps5remote-webos/crates/m0)
+   Compiling psremote v0.2.0 (/workspace/ps5remote-webos/build/release-source/ps5remote-webos/crates/psremote)
+   Compiling ps5remote-app v0.2.0 (/workspace/ps5remote-webos/build/release-source/ps5remote-webos/crates/app)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.05s
+     Running unittests src/lib.rs (target/debug/deps/ps5remote_app-8b463aa35a6dd3ef)
+
+running 19 tests
+test config::tests::blocks_external_hosts_and_bad_account ... ok
+test ffi::tests::axes_buttons_and_touch_mapping ... ok
+test config::tests::rejects_symlink ... ok
+test config::tests::atomic_private_round_trip_and_bad_update_preserves_pairing ... ok
+test ffi::tests::c_layout ... ok
+test hdr::tests::received_mastering_metadata_and_truncation ... ok
+test queues::soak::audio_pacing_does_not_throttle_100hz_to_60hz_ui ... ok
+test haptics::tests::channel_routing_and_off ... ok
+test queues::tests::hevc_irap ... ok
+test queues::tests::jitter_reorders_across_wrap ... ok
+test queues::tests::overflow_discards_dependencies_until_idr ... ok
+test queues::tests::short_tap_and_disconnect_are_ordered ... ok
+test ui::tests::intensity_respects_off_and_weaker_setting ... ok
+test ui::tests::disabling_reconnect_cancels_an_already_scheduled_attempt ... ok
+test ui::tests::opening_menu_releases_game_input_and_disconnect_cancels_retry ... ok
+test ui::tests::cancelled_pairing_result_does_not_replace_existing_credentials ... ok
+test ui::tests::passcode_prompt_focus_does_not_prevent_selecting_submit ... ok
+test ui::tests::setup_editor_saves_host_and_never_draws_secrets ... ok
+test queues::soak::simulated_two_hour_queue_soak ... ok
+
+test result: ok. 19 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.41s
+
+     Running unittests src/lib.rs (target/debug/deps/psremote-38dc082051a47c26)
+
+running 118 tests
+test ddp::tests::an_unknown_code_is_reported_rather_than_guessed ... ok
+test ddp::tests::reads_a_real_awake_reply ... ok
+test ddp::tests::reads_a_standby_reply_and_the_running_game ... ok
+test ddp::tests::refuses_garbage_instead_of_inventing_a_status ... ok
+test ddp::tests::the_console_subnet_picks_the_interface_and_its_broadcast ... ok
+test ddp::tests::tolerates_unknown_keys_and_trailing_nuls ... ok
+test ddp::tests::the_host_id_is_the_mac_without_separators ... ok
+test ddp::tests::waking_without_a_credential_is_refused_up_front ... ok
+test rp_login_pin::tests::passcodes_are_four_digits_and_never_printed ... ok
+test rp_regist::manual_pin_tests::a_manual_pin_needs_an_account_and_is_checked_before_any_network ... ok
+test rp_login_pin::tests::five_wrong_passcodes_end_the_asking ... ok
+test ddp::tests::a_srch_reaches_a_local_responder_and_only_its_reply_counts ... ok
+test rp_regist::manual_pin_tests::a_typed_pin_builds_the_same_request_as_a_helper_pin ... ok
+test rp_regist::manual_pin_tests::the_pin_is_eight_digits_as_the_ps5_shows_them ... ok
+test rp_regist::tests::a_reply_without_a_key_is_an_error_not_an_empty_registration ... ok
+test rp_regist::tests::credential_derivation_ignores_the_nul_padding ... ok
+test rp_regist::tests::credential_derivation_refuses_rubbish_rather_than_guessing ... ok
+test rp_regist::tests::credential_derivation_survives_the_round_trip ... ok
+test rp_regist::tests::a_record_decrypts_back_to_itself ... ok
+test rp_regist::tests::http_splitting_finds_the_status_and_body ... ok
+test rp_regist::tests::iv_matches_the_reference_implementation ... ok
+test rp_regist::tests::reads_a_registration_reply ... ok
+test rp_regist::tests::os_randomness_fills_the_buffer_on_this_platform ... ok
+test rp_regist::tests::refusal_codes_become_something_actionable ... ok
+test rp_regist::tests::seed_matches_the_reference_implementation ... ok
+test rp_regist::tests::session_keys_are_padded_to_sixteen_bytes ... ok
+test rp_regist::tests::the_pending_registration_refusal_is_named ... ok
+test rp_regist::tests::the_body_is_padding_then_ciphertext ... ok
+test rp_regist::tests::the_pin_only_perturbs_the_last_four_bytes ... ok
+test rp_regist::tests::the_preface_carries_the_nonce_without_disturbing_the_offsets ... ok
+test rp_session::tests::a_still_booting_console_is_retried_not_blamed_on_the_key ... ok
+test rp_login_pin::tests::an_unanswered_prompt_times_out_and_a_cancel_ends_it ... ok
+test rp_session::tests::ambassador_and_bright_are_deterministic_and_distinct ... ok
+test rp_session::tests::an_automatic_wake_stops_at_the_passcode_screen ... ok
+test rp_session::tests::an_unanswered_wake_passcode_times_out ... ok
+test rp_session::tests::bright_depends_on_the_rp_key ... ok
+test rp_session::tests::cancelling_the_wake_passcode_sends_nothing ... ok
+test rp_session::tests::creds_reject_mis_sized_hex ... ok
+test rp_session::tests::each_field_encrypts_under_its_own_counter ... ok
+test rp_session::tests::five_wrong_wake_passcodes_stop_the_asking ... ok
+test rp_session::tests::the_ctrl_message_types_match_a_real_client ... ok
+test rp_session::tests::the_device_id_is_stable_per_console ... ok
+test rp_session::tests::the_table_offset_tracks_the_nonce ... ok
+test rp_session::tests::a_wrong_wake_passcode_asks_again ... ok
+test rp_stream::audio::tests::audio_loss_counts_only_missing_packets ... ok
+test rp_stream::audio::tests::fec_copies_fill_a_gap_and_duplicates_are_dropped ... ok
+test rp_stream::audio::tests::haptics_pass_on_only_frames_newer_than_the_last ... ok
+test rp_stream::audio::tests::reads_the_header ... ok
+test rp_stream::crypto::tests::chiaki_ecdh_vector ... ok
+test rp_stream::crypto::tests::chiaki_gmac_key_vector ... ok
+test rp_stream::crypto::tests::chiaki_gmac_vectors ... ok
+test rp_stream::crypto::tests::chiaki_key_stream_vector ... ok
+test rp_stream::crypto::tests::counter_add_carries_little_endian ... ok
+test rp_stream::crypto::tests::ecdh_both_sides_agree ... ok
+test rp_stream::crypto::tests::keystream_is_position_addressed ... ok
+test rp_stream::fec::tests::chiaki_fec_vectors ... ok
+test rp_stream::feedback::tests::a_press_then_release_makes_two_history_packets_newest_first ... ok
+test rp_stream::feedback::tests::a_touch_is_down_then_up_with_one_id ... ok
+test rp_stream::feedback::tests::idle_state_matches_chiaki_layout ... ok
+test rp_stream::feedback::tests::motion_reaches_the_state_packet ... ok
+test rp_stream::feedback::tests::parses_the_page_pad_json ... ok
+test rp_stream::feedback::webos_tests::disconnect_flushes_released_buttons_triggers_sticks_and_touch ... ok
+test rp_stream::guard::tests::hold_off_blocks_until_it_passes ... ok
+test rp_stream::keyboard::tests::close_accept_and_reject ... ok
+test rp_stream::keyboard::tests::enable_matches_chiaki ... ok
+test rp_stream::keyboard::tests::long_text_is_cut_on_a_character ... ok
+test rp_stream::keyboard::tests::non_ascii_text_is_utf8_bytes ... ok
+test rp_stream::keyboard::tests::open_with_and_without_text ... ok
+test rp_stream::keyboard::tests::remote_close_and_other_kinds ... ok
+test rp_stream::keyboard::tests::set_text_layout_matches_chiaki ... ok
+test rp_stream::keyboard::tests::short_or_overlong_messages_are_ignored ... ok
+test rp_stream::mic::tests::a_ps4_packet_has_no_extra_byte ... ok
+test rp_stream::mic::tests::ctrl_payloads_match_chiaki ... ok
+test rp_stream::mic::tests::packets_match_chiaki_audiosender_bytes ... ok
+test rp_stream::mic::tests::seal_encrypts_units_and_macs_like_chiaki ... ok
+test rp_stream::mic::tests::silence_and_odd_sizes_are_skipped_without_touching_state ... ok
+test rp_stream::mic::tests::the_index_wraps_like_a_u16 ... ok
+test rp_stream::orientation::tests::a_still_level_pad_reads_level ... ok
+test rp_stream::orientation::tests::the_clock_may_wrap ... ok
+test rp_stream::orientation::tests::turning_shows_in_the_orientation ... ok
+test rp_stream::proto::tests::heartbeat_is_two_bytes ... ok
+test rp_stream::proto::tests::mic_stream_info_matches_nanopb ... ok
+test rp_stream::proto::tests::reads_the_consoles_connection_quality ... ok
+test rp_stream::proto::tests::round_trips_a_disconnect ... ok
+test rp_stream::takion::tests::a_chunk_is_given_up_on_after_ten_sends ... ok
+test rp_stream::takion::tests::a_cumulative_ack_forgets_everything_up_to_it_across_the_wrap ... ok
+test rp_stream::takion::tests::a_full_buffer_keeps_no_more ... ok
+test rp_stream::takion::tests::a_lost_data_chunk_reaches_the_console_on_the_resend ... ok
+test rp_stream::takion::tests::a_refused_receive_buffer_is_asked_again_at_half ... ok
+test rp_stream::takion::tests::a_v12_audio_packet_says_whether_it_is_haptics ... ok
+test rp_stream::takion::tests::an_ack_times_the_round_trip_of_a_chunk_sent_once ... ok
+test rp_stream::takion::tests::an_unacknowledged_chunk_is_sent_again_after_200_ms ... ok
+test rp_stream::takion::tests::passing_network_errors_do_not_end_the_stream ... ok
+test rp_stream::takion::tests::the_drop_knob_reads_one_copy_or_all ... ok
+test rp_stream::takion::tests::the_receive_buffer_is_raised_on_this_os ... ok
+test rp_stream::takion::tests::the_round_trip_moves_a_quarter_of_the_way ... ok
+test rp_stream::tests::a_passcode_request_is_answered_like_chiaki ... ok
+test rp_stream::tests::a_wrong_passcode_asks_again ... ok
+test rp_stream::tests::cancelling_the_passcode_ends_the_start ... ok
+test rp_stream::tests::codec_names_and_hevc ... ok
+test rp_stream::tests::ctrl_message_layout_matches_chiaki ... ok
+test rp_stream::tests::five_wrong_passcodes_stop_the_asking ... ok
+test rp_stream::tests::launch_spec_asks_for_hdr_only_with_the_hdr_codec ... ok
+test rp_stream::tests::launch_spec_is_valid_json ... ok
+test rp_session::tests::wake_sign_in_asks_for_the_passcode_and_signs_in ... ok
+test rp_stream::tests::trigger_effects_and_intensity_parse_like_chiaki ... ok
+test rp_stream::tests::with_a_dualsense_the_console_is_told_so ... ok
+test rp_stream::tests::with_the_keyboard_it_is_switched_on_in_chiakis_order ... ok
+test rp_stream::tests::with_the_mic_setup_adds_chiaki_mutes_and_audio_header ... ok
+test rp_stream::tests::without_a_request_the_session_id_comes_as_before ... ok
+test rp_stream::tests::without_the_mic_the_setup_is_unchanged ... ok
+test rp_stream::video::tests::fec_units_after_the_flush_count_as_received ... ok
+test rp_stream::video::tests::joins_source_units_and_skips_fec ... ok
+test rp_stream::video::tests::rebuilds_a_lost_source_unit_from_fec ... ok
+test rp_stream::video::tests::reports_a_skipped_frame ... ok
+test rp_stream::tests::the_console_giving_up_on_the_passcode_is_said ... ok
+test rp_session::tests::a_sent_passcode_without_login_success_is_not_a_sign_in ... ok
+test rp_session::tests::a_session_id_before_the_passcode_ask_is_not_a_sign_in ... ok
+
+test result: ok. 118 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 7.19s
+
+     Running unittests src/lib.rs (target/debug/deps/webos_m0-1c33443ba13f849c)
+
+running 3 tests
+test tests::aud_preserves_sps_and_keyframe ... ok
+test tests::rejects_undelimited_and_non_idr ... ok
+test tests::checked_fixture ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+   Doc-tests ps5remote_app
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests psremote
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests webos_m0
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

@@ -1,0 +1,7 @@
+# Protocol provenance
+
+Extracted from phantomptr/ps5upload commit 1d73219dd4fb95763a8c14a6b9d90cec1918bbca, engine/crates/ps5upload-core/src.
+
+Includes ddp.rs, rp_login_pin.rs, rp_session.rs, rp_regist.rs, rp_regist_keys.rs and the complete rp_stream directory, including tests and FEC vectors. All original headers are retained. The extraction removes pair_with_console() and its attached documentation, the payload management entry point; manual pair_with_pin() remains. log.rs is also included for the upstream core_log macro. The reviewed webos.patch adds a default video_format callback to report adaptive profile dimensions, bounds the internal pad queue at 256 entries, and sends released controller state/history before normal disconnect. FeedbackSender::release_all has its own regression test. scripts/check-extraction.py verifies every extracted file against the pinned original plus this patch. No console registry/account-modification APIs are linked. Any later integration changes are recorded here and in patches.
+
+The stream implementation is AGPL-3.0-only, derived from Chiaki/chiaki-ng. Other modules retain their GPL/ISC notices. The combined client is distributed under AGPLv3 with GPLv3 combination terms; see THIRD_PARTY.md and packaged notices. Upstream does not guarantee this port works on webOS.

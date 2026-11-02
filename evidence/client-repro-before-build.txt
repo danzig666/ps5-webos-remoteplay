@@ -1,0 +1,67 @@
+Pinned build input revisions verified
+PS5Upload extraction matches pinned source and patch
+   Compiling ps5remote-app v0.2.0 (/workspace/ps5remote-webos/crates/app)
+    Finished `release` profile [optimized] target(s) in 2.21s
+    Finished `release` profile [optimized] target(s) in 0.01s
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ps5remote-webos/build/client
+[  2%] Building C object ss4s-utils/CMakeFiles/ss4s-webos-utils.dir/jail_check.c.o
+[  5%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/library.c.o
+[  8%] Building C object ss4s-utils/CMakeFiles/ss4s-webos-utils.dir/highend_check.c.o
+[ 10%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/driver.c.o
+[ 13%] Building C object ss4s-utils/CMakeFiles/ss4s-webos-utils.dir/m3_kadp_fix.c.o
+[ 16%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/player.c.o
+[ 18%] Building C object ss4s-utils/CMakeFiles/ss4s-webos-utils.dir/max_res.c.o
+[ 21%] Linking C static library libss4s-webos-utils.a
+[ 24%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/audio.c.o
+[ 24%] Built target ss4s-webos-utils
+[ 27%] Building C object CMakeFiles/sdl2_ndl_shim.dir/upstream/aurora-tv/src/app/platform/webos/sdl2_ndl_shim.c.o
+[ 29%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/video.c.o
+[ 32%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/module.c.o
+[ 35%] Linking C shared library libSDL2-2.0.so.0
+[ 37%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/stats.c.o
+[ 37%] Built target sdl2_ndl_shim
+[ 40%] Building C object CMakeFiles/ss4s-module-ndl-webos5.dir/upstream/ss4s/modules/webos/ndl/webos5/ndl_module.c.o
+[ 43%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/feed_guard.c.o
+[ 45%] Building C object CMakeFiles/ss4s-module-ndl-webos5.dir/upstream/ss4s/modules/webos/ndl/webos5/ndl_player.c.o
+[ 48%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/module_libdl.c.o
+[ 51%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/mutex_pthread.c.o
+[ 54%] Linking C static library libss4s.a
+[ 54%] Built target ss4s
+[ 56%] Building C object CMakeFiles/m0.dir/platform/webos/main.c.o
+[ 59%] Building C object CMakeFiles/m0.dir/platform/webos/media_bridge.c.o
+[ 62%] Building C object CMakeFiles/ss4s-module-ndl-webos5.dir/upstream/ss4s/modules/webos/ndl/webos5/ndl_video.c.o
+[ 64%] Building C object CMakeFiles/m0.dir/platform/webos/input_bridge.c.o
+[ 67%] Building C object CMakeFiles/ss4s-module-ndl-webos5.dir/upstream/ss4s/modules/webos/ndl/webos5/ndl_audio.c.o
+[ 70%] Building C object CMakeFiles/ss4s-module-ndl-webos5.dir/upstream/ss4s/modules/webos/ndl/webos5/opus_empty.c.o
+[ 72%] Building C object CMakeFiles/ss4s-module-ndl-webos5.dir/upstream/ss4s/modules/webos/ndl/webos5/opus_fix.c.o
+[ 75%] Building C object CMakeFiles/m0.dir/platform/webos/device_probe.c.o
+[ 78%] Building C object CMakeFiles/ss4s-module-ndl-webos5.dir/upstream/ss4s/modules/webos/common/aurora_frame_diag.c.o
+[ 81%] Linking C executable m0
+[ 83%] Linking C shared library ss4s-ndl-webos5.so
+[ 83%] Built target m0
+[ 83%] Built target ss4s-module-ndl-webos5
+[ 86%] Building C object CMakeFiles/ps5remote.dir/platform/client/main.c.o
+[ 89%] Building C object CMakeFiles/ps5remote.dir/platform/client/platform.c.o
+[ 91%] Building C object CMakeFiles/ps5remote.dir/platform/client/input.c.o
+[ 94%] Building C object CMakeFiles/ps5remote.dir/platform/client/vendor/dualsense_usb.c.o
+[ 97%] Building C object CMakeFiles/ps5remote.dir/platform/webos/device_probe.c.o
+[100%] Linking C executable ps5remote
+[100%] Built target ps5remote
+-- Install configuration: "Release"
+-- Installing: /workspace/ps5remote-webos/build/client-stage/lib/ss4s-ndl-webos5.so
+-- Set non-toolchain portion of runtime path of "/workspace/ps5remote-webos/build/client-stage/lib/ss4s-ndl-webos5.so" to "$ORIGIN"
+-- Up-to-date: /workspace/ps5remote-webos/build/client-stage/lib/ss4s_modules.ini
+-- Installing: /workspace/ps5remote-webos/build/client-stage/lib/libSDL2-2.0.so.0
+-- Set non-toolchain portion of runtime path of "/workspace/ps5remote-webos/build/client-stage/lib/libSDL2-2.0.so.0" to "$ORIGIN"
+-- Install configuration: "Release"
+-- Installing: /workspace/ps5remote-webos/build/client-stage/./ps5remote
+cc5d311e04130b99df1db0f8eefaede83675c0aeaa142123d59ae2a9b0f1ea46 ps5remote
+c452c9ea0f2bb7e75b1485c5924d2506378dac26ae58084dd51f97cedfacd4da lib/libgcc_s.so.1
+eda24bd38e58a180d466385060000e02c629f14545176437f42df9544ff75c10 lib/libSDL2-webos.so.0
+c9c1b25e88e1385135959f1877fec2a0ccb0b76f9f5854f7ceee4c717b05b2c0 lib/libSDL2-2.0.so.0
+8b2f1fb89d7c29af34fc6647224d3b01f4d5c6565593b79b670dcf0f2d24ab83 lib/libSDL3.so.0
+5991e72b825af820aaf31e15a65478445f47938c0189bbc33f60f4061f05ccb9 lib/ss4s-ndl-webos5.so
+33bf16386d061893b6ec62a91430fa060c5d1248203774c152caedef886a2059 lib/libatomic.so.1
+Client ELF/assets/dependency audit passed; TV/runtime functionality UNVERIFIED

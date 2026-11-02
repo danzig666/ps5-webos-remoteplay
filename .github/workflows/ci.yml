@@ -1,0 +1,29 @@
+name: Native webOS client
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  build-and-test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Host prerequisites
+        run: sudo apt-get update && sudo apt-get install -y build-essential git curl patch python3-pip
+      - name: Pinned tools and SDK
+        run: scripts/install-tools.sh
+      - name: Build, tests and reproducibility
+        shell: bash
+        run: |
+          export M0_TOOLS_DIR="$PWD/.tools"
+          export CARGO_HOME="$M0_TOOLS_DIR/cargo" RUSTUP_HOME="$M0_TOOLS_DIR/rustup"
+          export WEBOS_SDK_DIR="$M0_TOOLS_DIR/arm-webos-linux-gnueabi_sdk-buildroot"
+          export APPDATA="$M0_TOOLS_DIR/cli-data"
+          export PATH="$CARGO_HOME/bin:$M0_TOOLS_DIR/python/cmake/data/bin:$M0_TOOLS_DIR/node/node_modules/.bin:$PATH"
+          python3 scripts/fetch-upstream.py
+          cargo fetch --locked
+          scripts/build-deps.sh
+          scripts/build-client.sh
+          scripts/package-client.sh
+          scripts/verify-client.sh
+          scripts/repro-client.sh

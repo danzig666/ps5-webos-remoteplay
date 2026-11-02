@@ -1,0 +1,30 @@
+--- a/dualsense_usb.c
++++ b/dualsense_usb.c
+@@ -63,6 +63,8 @@
+     uint8_t player_leds;
+     uint8_t mic_led;
+     bool write_fail_logged;
++    bool strength_owned;
++    uint8_t strength;
+ };
+ 
+ static void normalize_mac(char *dst, size_t dst_len, const char *src) {
+@@ -136,6 +138,7 @@
+         memcpy(c + OFF_RIGHT_TRIGGER, ds->right_effect, DS_EFFECT_LEN);
+         memcpy(c + OFF_LEFT_TRIGGER, ds->left_effect, DS_EFFECT_LEN);
+     }
++    if (ds->strength_owned) { c[1] |= 0x40; c[36] = ds->strength; }
+     if (ds->mic_led_owned) {
+         c[1] |= FLAG1_MIC_LED;
+         c[OFF_MIC_LED] = ds->mic_led;
+@@ -322,3 +325,10 @@
+     ds->mic_led_owned = true;
+     return flush_report(ds);
+ }
++
++/* PS5Upload strength-byte semantics; see provenance and tests. */
++bool dualsense_usb_set_strength(dualsense_usb_t *ds, uint8_t value) {
++    if (!ds) return false;
++    ds->strength_owned = true; ds->strength = value;
++    return flush_report(ds);
++}

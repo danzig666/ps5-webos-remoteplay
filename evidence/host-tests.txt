@@ -1,0 +1,17 @@
+   Compiling webos-m0 v0.1.0 (/workspace/ps5remote-webos/crates/m0)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.29s
+     Running unittests src/lib.rs (target/debug/deps/webos_m0-f38036dbb586e227)
+
+running 3 tests
+test tests::aud_preserves_sps_and_keyframe ... ok
+test tests::rejects_undelimited_and_non_idr ... ok
+test tests::checked_fixture ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+   Doc-tests webos_m0
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

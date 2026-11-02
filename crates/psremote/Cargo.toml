@@ -1,0 +1,21 @@
+[package]
+name = "psremote"
+version = "0.2.0"
+edition = "2021"
+license = "AGPL-3.0-only"
+
+[dependencies]
+anyhow = "1.0"
+getrandom = "0.4"
+base64 = "0.23"
+sha2 = "0.11"
+hmac = "0.13"
+aes = "0.9"
+aes-gcm = { version = "0.11", default-features = false, features = ["aes"] }
+k256 = { version = "0.14", default-features = false, features = ["ecdh", "arithmetic"] }
+cfb-mode = "0.9"
+socket2 = "0.6"
+libc = "0.2"
+serde = { version = "1.0", features = ["derive"] }
+
+serde_json = "1.0"

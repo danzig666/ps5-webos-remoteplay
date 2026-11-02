@@ -1,0 +1,184 @@
+--- a/rp_regist.rs
++++ b/rp_regist.rs
+@@ -670,99 +670,6 @@
+     pub account_via: String,
+ }
+ 
+-/// Pair with a console end to end, with nothing asked of the user.
+-///
+-/// The console supplies both halves itself: [`crate::remoteplay`] reads the
+-/// PSN account id out of its registry and has Sony's own API mint a PIN, so
+-/// there is no browser sign-in and no trip to the Link Device screen. The
+-/// console must be awake with the payload running — a sleeping console
+-/// cannot do any of this, which is fine, because pairing happens once and
+-/// waking is what it buys.
+-///
+-/// `mgmt_addr` is the payload's management port; `host` is the console's
+-/// address, which the registration and wake traffic use on their own ports.
+-pub fn pair_with_console(mgmt_addr: &str, host: &str) -> Result<PairResult> {
+-    let mut readiness = crate::remoteplay::remoteplay_readiness(mgmt_addr)
+-        .context("asking the console whether it can pair")?;
+-
+-    // Check preconditions here rather than let registration fail with a
+-    // generic refusal — each of these has a different fix.
+-    if !readiness.registry_ok() {
+-        bail!(
+-            "could not read the console's settings (registry error {})",
+-            readiness.registry_err
+-        );
+-    }
+-    if readiness.symbols_ok == 0 {
+-        bail!("this firmware does not expose Remote Play to the payload");
+-    }
+-    if readiness.account_uid <= 0 || !readiness.activated() {
+-        bail!(
+-            "no signed-in user with an activated PSN account — sign in on the console, \
+-             then try again"
+-        );
+-    }
+-    // Remote Play has to be on before a pairing can happen. We can turn it
+-    // on, and someone who started setup has already asked for exactly that,
+-    // so do it instead of sending them into the console's menus and making
+-    // them come back. Two scopes because FW 10.00 split the system-wide
+-    // service from per-user permission; a console can have the service on
+-    // while the account in use is not permitted, which pairs fine and then
+-    // refuses every session.
+-    if !readiness.service_on() {
+-        readiness = crate::remoteplay::remoteplay_enable(mgmt_addr, "service")
+-            .context("turning Remote Play on")?;
+-    }
+-    if readiness.needs_per_user() && !readiness.user_on() {
+-        readiness = crate::remoteplay::remoteplay_enable(mgmt_addr, "user")
+-            .context("allowing this user to use Remote Play")?;
+-    }
+-    // `remoteplay_enable` re-reads the console rather than reporting a bare
+-    // ok, so this is the console's own answer, not our assumption.
+-    if !readiness.service_on() {
+-        bail!("Remote Play is off and the console would not turn it on");
+-    }
+-
+-    let account_id = readiness.account_id_b64.clone();
+-
+-    // Give up any PIN left over from an abandoned attempt before asking for
+-    // a new one (the request replaces a live PIN anyway; this also clears a
+-    // finished attempt's state). Cancel makes no Sony call that can block.
+-    let _ = crate::remoteplay::remoteplay_cancel(mgmt_addr);
+-
+-    // The PIN comes back in the ack. It must NOT be fetched by polling
+-    // status: that probes sceRemoteplayConfirmDeviceRegist, which finalises
+-    // the pending registration on the console, and the handshake below is
+-    // then refused (measured: HTTP 403, reason 80108b03).
+-    // Its error already says what failed (the payload's Sony call and code).
+-    let snap = crate::remoteplay::remoteplay_request(mgmt_addr, None)?;
+-
+-    let pin = snap.pin.trim().to_string();
+-    if pin.is_empty() {
+-        bail!("the console did not return a pairing PIN");
+-    }
+-    let pin_num: u32 = pin
+-        .parse()
+-        .map_err(|_| anyhow!("the console produced a PIN we cannot read: {pin:?}"))?;
+-
+-    let reg = register(host, &account_id, pin_num)?;
+-    let credential = credential_from_regist_key(&reg.regist_key)?;
+-
+-    // Best effort: the PIN has been consumed, so clear the waiting state
+-    // rather than leave the console counting down.
+-    let _ = crate::remoteplay::remoteplay_cancel(mgmt_addr);
+-
+-    Ok(PairResult {
+-        credential: credential.to_string(),
+-        regist_key: pad_session_key_hex(&reg.regist_key),
+-        rp_key: pad_session_key_hex(&reg.rp_key),
+-        nickname: reg.nickname,
+-        mac: reg.mac,
+-        account_id_b64: account_id,
+-        account_via: readiness.account_via,
+-    })
+-}
+-
+ /// A PIN as the user typed it from the PS5's Link Device screen: eight digits, spaces and dashes
+ /// allowed between them.
+ pub fn parse_manual_pin(raw: &str) -> Result<u32> {
+--- a/rp_stream/feedback.rs
++++ b/rp_stream/feedback.rs
+@@ -279,6 +279,17 @@
+             self.state_dirty = true;
+         }
+         self.state = now;
++    }
++
++    /// webOS: best-effort release before closing a live transport, bypassing MIN_HOLD.
++    pub fn release_all(&mut self) -> Vec<Packet> {
++        self.queued.clear();
++        self.set(ControllerState::default());
++        self.state_dirty = true;
++        let mut out = Vec::new();
++        let now = Instant::now();
++        for _ in 0..32 { out.extend(self.tick(now)); }
++        out
+     }
+ 
+     /// Packets due now.
+@@ -410,3 +421,18 @@
+         assert_eq!((qc >> 3) & 0x1ff, 255);
+     }
+ }
++
++#[cfg(test)]
++mod webos_tests {
++    use super::*;
++    #[test]
++    fn disconnect_flushes_released_buttons_triggers_sticks_and_touch() {
++        let mut f=FeedbackSender::new();
++        f.set(ControllerState{buttons:0xffff,l2:255,r2:255,lx:i16::MIN,touch:Some([10,20]),..Default::default()});
++        let packets=f.release_all();
++        assert_eq!(f.state,ControllerState::default());
++        assert!(packets.iter().any(|p|matches!(p,Packet::State(_))));
++        assert!(packets.iter().any(|p|match p {Packet::History(_,b)=>b.windows(3).any(|s|s==[0x80,0x88,0x00]),_=>false}));
++        assert!(f.queued.is_empty());
++    }
++}
+--- a/rp_stream/mod.rs
++++ b/rp_stream/mod.rs
+@@ -639,6 +639,8 @@
+ 
+ /// Where a stream's output goes and its input comes from.
+ pub trait StreamSink {
++    /// webOS adapter extension: actual selected profile dimensions.
++    fn video_format(&mut self, _width: u32, _height: u32) {}
+     fn progress(&mut self, _p: Progress) {}
+     /// One Annex-B access unit (`header` = codec parameter sets). False stops.
+     fn video(&mut self, au: &[u8], header: bool) -> bool;
+@@ -1008,7 +1010,8 @@
+         // its release is applied: the console reads the pad about once a frame,
+         // and a tap whose press and release land in one frame never registers
+         // (seen: 3 quick taps moved the home screen 1 tile).
+-        while let Some(pad) = sink.input() {
++        while pad_queue.len() < 256 {
++            let Some(pad) = sink.input() else { break; };
+             pad_queue.push_back(pad);
+         }
+         while let Some(next) = pad_queue.front().copied() {
+@@ -1212,6 +1215,7 @@
+                         continue;
+                     };
+                     profile = Some(p.adaptive_stream_index);
++                    sink.video_format(r.width, r.height);
+                     if !sink.video(&r.video_header, true) {
+                         break Ok(());
+                     }
+@@ -1235,6 +1239,13 @@
+             }
+         }
+     };
++    // webOS: release locally held input before DISCONNECT. A broken LAN cannot guarantee delivery.
++    for packet in feedback.release_all() {
++        match packet {
++            feedback::Packet::State(p) => { let _ = takion.send_feedback(6, state_seq, 1, &p); state_seq=state_seq.wrapping_add(1); }
++            feedback::Packet::History(n,p) => { let _ = takion.send_feedback(1, history_seq, n, &p); history_seq=history_seq.wrapping_add(1); }
++        }
++    }
+     // Clean stop, in chiaki's order: DISCONNECT over Takion, then close ctrl.
+     takion.close();
+     drop(ctrl);

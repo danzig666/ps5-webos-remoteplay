@@ -1,0 +1,10 @@
+{
+  "id": "org.homebrew.ps5remote.m0",
+  "version": "0.1.0",
+  "vendor": "M0 feasibility prototype",
+  "type": "native",
+  "main": "m0",
+  "title": "PS5 Remote M0",
+  "icon": "icon.png",
+  "requiredMemory": 128
+}

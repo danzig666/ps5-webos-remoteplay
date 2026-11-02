@@ -1,0 +1,40 @@
+{
+  "aurora-tv": {
+    "url": "https://github.com/GuiDev1994/aurora-tv.git",
+    "rev": "6e9bf90d1f66e1e2ced6761b595b4b51b7496fdc",
+    "role": "build input",
+    "submodules": {
+      "core/moonlight-common-c": "2f374df3190d63ec51053c16a5283e19f2bf9d23"
+    }
+  },
+  "chiaki-lg": {
+    "url": "https://github.com/TacticalBill/chiaki-lg.git",
+    "rev": "d3f216991036178cbba922692031cf68dcf7905f",
+    "role": "reference only"
+  },
+  "plx-native": {
+    "url": "https://github.com/GLinnik21/plx-native.git",
+    "rev": "2200ceb34b031fe77e3a196a1891ed275fe9dc2d",
+    "role": "reference only"
+  },
+  "ps5upload": {
+    "url": "https://github.com/phantomptr/ps5upload.git",
+    "rev": "1d73219dd4fb95763a8c14a6b9d90cec1918bbca",
+    "role": "build input"
+  },
+  "ss4s": {
+    "url": "https://github.com/GuiDev1994/ss4s.git",
+    "rev": "623e1c1f695663e13f4d754dbe5939e0cac6af6d",
+    "role": "build input"
+  },
+  "sdl2-compat": {
+    "url": "https://github.com/libsdl-org/sdl2-compat.git",
+    "rev": "e4df8a55f20da762290a78c2bbe8f8d89d01486a",
+    "role": "build input"
+  },
+  "sdl3-webos": {
+    "url": "https://github.com/webosbrew/SDL-webOS.git",
+    "rev": "f599b850f9b1347cebdbb9a806999ddd170ab661",
+    "role": "source for bundled binary"
+  }
+}

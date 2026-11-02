@@ -1,0 +1,200 @@
+Verified opus 65c1d2f78b9f2fb20082c38cbe47c951ad5839345876e46941612ee87f9a7ce1
+-- Opus package version from package_version file: 1.5.2
+-- Opus project version: 1.5.2
+-- Performing Test VLA_SUPPORTED -- success
+-- Check NEON support by compiler
+-- The following features have been enabled:
+
+ * OPUS_ENABLE_FLOAT_API, compile with the floating point API (for machines with float library).
+ * OPUS_HARDENING, run-time checks that are cheap and safe for use in production.
+ * OPUS_INSTALL_PKG_CONFIG_MODULE, install pkg-config module.
+ * OPUS_INSTALL_CMAKE_CONFIG_MODULE, install CMake package config module.
+ * OPUS_VAR_ARRAYS, use variable length arrays for stack arrays.
+ * OPUS_STACK_PROTECTOR, use stack protection.
+ * OPUS_FORTIFY_SOURCE, add protection against buffer overflows.
+
+-- The following OPTIONAL packages have been found:
+
+ * Git
+
+-- The following features have been disabled:
+
+ * OPUS_BUILD_SHARED_LIBRARY, build shared library.
+ * OPUS_BUILD_TESTING, build tests.
+ * OPUS_CUSTOM_MODES, enable non-Opus modes, e.g. 44.1 kHz & 2^n frames.
+ * OPUS_BUILD_PROGRAMS, build programs.
+ * OPUS_DISABLE_INTRINSICS, disable all intrinsics optimizations.
+ * OPUS_FIXED_POINT, compile as fixed-point (for machines without a fast enough FPU).
+ * OPUS_FLOAT_APPROX, enable floating point approximations (Ensure your platform supports IEEE 754 before enabling).
+ * OPUS_ASSERTIONS, additional software error checking.
+ * OPUS_FUZZING, causes the encoder to make random decisions (do not use in production).
+ * OPUS_CHECK_ASM, enable bit-exactness checks between optimized and c implementations.
+ * OPUS_DNN_FLOAT_DEBUG, Run DNN computations as float for debugging purposes.
+ * OPUS_DRED, enable DRED.
+ * OPUS_OSCE, enable OSCE.
+ * OPUS_FIXED_POINT_DEBUG, debug fixed-point implementation.
+ * OPUS_USE_ALLOCA, use alloca for stack arrays (on non-C99 compilers).
+ * OPUS_NONTHREADSAFE_PSEUDOSTACK, use a non threadsafe pseudostack when neither variable length arrays or alloca is supported.
+ * OPUS_FAST_MATH, enable fast math (unsupported and discouraged use, as code is not well tested with this build option).
+
+-- OPUS_MAY_HAVE_NEON enabling runtime detection
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ps5remote-webos/build/opus
+[100%] Built target opus
+-- Install configuration: "Release"
+-- Up-to-date: /workspace/ps5remote-webos/build/deps-root/usr/lib/libopus.a
+-- Up-to-date: /workspace/ps5remote-webos/build/deps-root/usr/include/opus/opus.h
+-- Up-to-date: /workspace/ps5remote-webos/build/deps-root/usr/include/opus/opus_defines.h
+-- Up-to-date: /workspace/ps5remote-webos/build/deps-root/usr/include/opus/opus_multistream.h
+-- Up-to-date: /workspace/ps5remote-webos/build/deps-root/usr/include/opus/opus_projection.h
+-- Up-to-date: /workspace/ps5remote-webos/build/deps-root/usr/include/opus/opus_types.h
+-- Up-to-date: /workspace/ps5remote-webos/build/deps-root/usr/lib/pkgconfig/opus.pc
+-- Up-to-date: /workspace/ps5remote-webos/build/deps-root/usr/lib/cmake/Opus/OpusTargets.cmake
+-- Up-to-date: /workspace/ps5remote-webos/build/deps-root/usr/lib/cmake/Opus/OpusTargets-release.cmake
+-- Up-to-date: /workspace/ps5remote-webos/build/deps-root/usr/lib/cmake/Opus/OpusConfig.cmake
+-- Up-to-date: /workspace/ps5remote-webos/build/deps-root/usr/lib/cmake/Opus/OpusConfigVersion.cmake
+Pinned build input revisions verified
+Verified sdl3_webos e3e99a88cdd88b246d68c3cea42dd0f7c4ac635563ed5352d3bf1a725dc3ac4b
+-- X11 support disabled
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ps5remote-webos/build/sdl2-compat
+[  4%] Building C object CMakeFiles/SDL2.dir/src/sdl2_compat.c.o
+[  9%] Building C object CMakeFiles/SDL2main.dir/src/SDLmain/dummy/SDL_dummy_main.c.o
+[ 13%] Linking C static library libSDL2main.a
+[ 13%] Built target SDL2main
+[ 18%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_assert.c.o
+[ 22%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_common.c.o
+[ 27%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_compare.c.o
+[ 31%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_crc32.c.o
+[ 36%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_font.c.o
+[ 40%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_fuzzer.c.o
+[ 45%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_harness.c.o
+[ 50%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_imageBlit.c.o
+[ 54%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_imageBlitBlend.c.o
+[ 59%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_imageFace.c.o
+[ 63%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_imagePrimitives.c.o
+[ 68%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_imagePrimitivesBlend.c.o
+[ 72%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_log.c.o
+[ 77%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_md5.c.o
+[ 81%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_memory.c.o
+[ 86%] Building C object CMakeFiles/SDL2_test.dir/src/test/SDL_test_random.c.o
+[ 90%] Linking C static library libSDL2_test.a
+[ 90%] Built target SDL2_test
+[ 95%] Building C object CMakeFiles/SDL2.dir/src/dynapi/SDL_dynapi.c.o
+[100%] Linking C shared library libSDL2-webos.so
+[100%] Built target SDL2
+-- Install configuration: "Release"
+-- Installing: /workspace/ps5remote-webos/build/sdl-runtime/lib/libSDL2-webos.so.0.3200.74
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/lib/libSDL2-webos.so.0
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/lib/libSDL2-webos.so
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/SDL2Targets.cmake
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/SDL2Targets-release.cmake
+-- Installing: /workspace/ps5remote-webos/build/sdl-runtime/lib/libSDL2main.a
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/SDL2mainTargets.cmake
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/SDL2mainTargets-release.cmake
+-- Installing: /workspace/ps5remote-webos/build/sdl-runtime/lib/libSDL2_test.a
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/SDL2_testTargets.cmake
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/SDL2_testTargets-release.cmake
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/share/licenses/sdl2-compat/LICENSE.txt
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/sdl2-config.cmake
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/sdl2-config-version.cmake
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/SDL2Config.cmake
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/lib/cmake/SDL2/SDL2ConfigVersion.cmake
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_assert.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_atomic.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_audio.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_bits.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_blendmode.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_clipboard.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_android.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_emscripten.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_iphoneos.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_macosx.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_minimal.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_ngage.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_os2.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_pandora.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_windows.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_wingdk.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_winrt.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_xbox.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_copying.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_cpuinfo.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_egl.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_endian.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_error.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_events.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_filesystem.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_gamecontroller.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_gesture.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_guid.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_haptic.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_hidapi.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_hints.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_joystick.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_keyboard.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_keycode.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_loadso.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_locale.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_log.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_main.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_messagebox.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_metal.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_misc.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_mouse.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_mutex.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_name.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_opengl.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_opengl_glext.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_opengles.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_opengles2.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_opengles2_gl2.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_opengles2_gl2ext.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_opengles2_gl2platform.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_opengles2_khrplatform.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_pixels.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_platform.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_power.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_quit.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_rect.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_render.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_rwops.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_scancode.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_sensor.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_shape.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_stdinc.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_surface.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_system.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_syswm.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_assert.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_common.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_compare.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_crc32.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_font.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_fuzzer.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_harness.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_images.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_log.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_md5.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_memory.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_test_random.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_thread.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_timer.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_touch.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_types.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_version.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_video.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_vulkan.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/begin_code.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/close_code.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_config_unix.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/include/SDL2/SDL_revision.h
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/lib/pkgconfig/sdl2-compat.pc
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/bin/sdl2-config
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/lib/libSDL2.so
+-- Up-to-date: /workspace/ps5remote-webos/build/sdl-runtime/share/aclocal/sdl2.m4

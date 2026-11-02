@@ -1,0 +1,10 @@
+{
+  "id": "org.homebrew.ps5remote",
+  "version": "0.2.0",
+  "vendor": "Native Rust Remote Play",
+  "type": "native",
+  "main": "ps5remote",
+  "title": "PS5 Remote",
+  "icon": "icon.png",
+  "requiredMemory": 256
+}

@@ -1,0 +1,5 @@
+rustc 1.85.1 (4eb161250 2025-03-15)
+arm-webos-linux-gnueabi-gcc.br_real (Buildroot 2026.08) 16.2.0
+cmake version 3.31.6
+v24.19.0
+ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers

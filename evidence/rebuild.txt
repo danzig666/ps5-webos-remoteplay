@@ -1,0 +1,293 @@
+Pinned build input revisions verified
+    Finished `release` profile [optimized] target(s) in 0.00s
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ps5remote-webos/build/webos
+[  3%] Building C object ss4s-utils/CMakeFiles/ss4s-webos-utils.dir/jail_check.c.o
+[  6%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/library.c.o
+[  9%] Building C object ss4s-utils/CMakeFiles/ss4s-webos-utils.dir/highend_check.c.o
+[ 12%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/driver.c.o
+[ 16%] Building C object ss4s-utils/CMakeFiles/ss4s-webos-utils.dir/m3_kadp_fix.c.o
+[ 19%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/player.c.o
+[ 22%] Building C object ss4s-utils/CMakeFiles/ss4s-webos-utils.dir/max_res.c.o
+[ 25%] Linking C static library libss4s-webos-utils.a
+[ 25%] Built target ss4s-webos-utils
+[ 29%] Building C object CMakeFiles/sdl2_ndl_shim.dir/upstream/aurora-tv/src/app/platform/webos/sdl2_ndl_shim.c.o
+[ 32%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/audio.c.o
+[ 35%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/video.c.o
+[ 38%] Linking C shared library libSDL2-2.0.so.0
+[ 38%] Built target sdl2_ndl_shim
+[ 41%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/module.c.o
+[ 45%] Building C object CMakeFiles/ss4s-module-ndl-webos5.dir/upstream/ss4s/modules/webos/ndl/webos5/ndl_module.c.o
+[ 48%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/stats.c.o
+[ 51%] Building C object CMakeFiles/ss4s-module-ndl-webos5.dir/upstream/ss4s/modules/webos/ndl/webos5/ndl_player.c.o
+[ 54%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/feed_guard.c.o
+[ 58%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/module_libdl.c.o
+[ 61%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/mutex_pthread.c.o
+[ 64%] Linking C static library libss4s.a
+[ 64%] Built target ss4s
+[ 67%] Building C object CMakeFiles/ss4s-module-ndl-webos5.dir/upstream/ss4s/modules/webos/ndl/webos5/ndl_video.c.o
+[ 70%] Building C object CMakeFiles/ss4s-module-ndl-webos5.dir/upstream/ss4s/modules/webos/ndl/webos5/ndl_audio.c.o
+[ 74%] Building C object CMakeFiles/ss4s-module-ndl-webos5.dir/upstream/ss4s/modules/webos/ndl/webos5/opus_empty.c.o
+[ 77%] Building C object CMakeFiles/ss4s-module-ndl-webos5.dir/upstream/ss4s/modules/webos/ndl/webos5/opus_fix.c.o
+[ 80%] Building C object CMakeFiles/ss4s-module-ndl-webos5.dir/upstream/ss4s/modules/webos/common/aurora_frame_diag.c.o
+[ 83%] Building C object CMakeFiles/m0.dir/platform/webos/main.c.o
+[ 87%] Building C object CMakeFiles/m0.dir/platform/webos/media_bridge.c.o
+[ 90%] Linking C shared library ss4s-ndl-webos5.so
+[ 90%] Built target ss4s-module-ndl-webos5
+[ 93%] Building C object CMakeFiles/m0.dir/platform/webos/input_bridge.c.o
+[ 96%] Building C object CMakeFiles/m0.dir/platform/webos/device_probe.c.o
+[100%] Linking C executable m0
+[100%] Built target m0
+-- Install configuration: "Release"
+-- Installing: /workspace/ps5remote-webos/build/stage/lib/ss4s-ndl-webos5.so
+-- Set non-toolchain portion of runtime path of "/workspace/ps5remote-webos/build/stage/lib/ss4s-ndl-webos5.so" to "$ORIGIN"
+-- Up-to-date: /workspace/ps5remote-webos/build/stage/lib/ss4s_modules.ini
+-- Installing: /workspace/ps5remote-webos/build/stage/lib/libSDL2-2.0.so.0
+-- Set non-toolchain portion of runtime path of "/workspace/ps5remote-webos/build/stage/lib/libSDL2-2.0.so.0" to "$ORIGIN"
+-- Installing: /workspace/ps5remote-webos/build/stage/./m0
+
+Dynamic section at offset 0xe1ec4 contains 34 entries:
+  Tag        Type                         Name/Value
+ 0x00000001 (NEEDED)                     Shared library: [libSDL2-webos.so.0]
+ 0x00000001 (NEEDED)                     Shared library: [libpthread.so.0]
+ 0x00000001 (NEEDED)                     Shared library: [libdl.so.2]
+ 0x00000001 (NEEDED)                     Shared library: [libm.so.6]
+ 0x00000001 (NEEDED)                     Shared library: [libatomic.so.1]
+ 0x00000001 (NEEDED)                     Shared library: [libgcc_s.so.1]
+ 0x00000001 (NEEDED)                     Shared library: [libc.so.6]
+ 0x00000001 (NEEDED)                     Shared library: [ld-linux.so.3]
+ 0x00000001 (NEEDED)                     Shared library: [librt.so.1]
+ 0x0000000f (RPATH)                      Library rpath: [$ORIGIN/lib]
+ 0x0000000c (INIT)                       0x13c48
+ 0x0000000d (FINI)                       0xca40c
+ 0x00000019 (INIT_ARRAY)                 0xed278
+ 0x0000001b (INIT_ARRAYSZ)               12 (bytes)
+ 0x0000001a (FINI_ARRAY)                 0xed284
+ 0x0000001c (FINI_ARRAYSZ)               8 (bytes)
+ 0x00000004 (HASH)                       0x10188
+ 0x6ffffef5 (GNU_HASH)                   0x109d4
+ 0x00000005 (STRTAB)                     0x12278
+ 0x00000006 (SYMTAB)                     0x111d8
+ 0x0000000a (STRSZ)                      3666 (bytes)
+ 0x0000000b (SYMENT)                     16 (bytes)
+ 0x00000015 (DEBUG)                      0x0
+ 0x00000003 (PLTGOT)                     0xf2000
+ 0x00000002 (PLTRELSZ)                   2000 (bytes)
+ 0x00000014 (PLTREL)                     REL
+ 0x00000017 (JMPREL)                     0x13478
+ 0x00000011 (REL)                        0x13410
+ 0x00000012 (RELSZ)                      104 (bytes)
+ 0x00000013 (RELENT)                     8 (bytes)
+ 0x6ffffffe (VERNEED)                    0x132e0
+ 0x6fffffff (VERNEEDNUM)                 6
+ 0x6ffffff0 (VERSYM)                     0x130ca
+ 0x00000000 (NULL)                       0x0
+
+
+Dynamic section at offset 0x1ff00 contains 28 entries:
+  Tag        Type                         Name/Value
+ 0x00000001 (NEEDED)                     Shared library: [libc.so.6]
+ 0x0000000e (SONAME)                     Library soname: [libgcc_s.so.1]
+ 0x0000000c (INIT)                       0xf44c
+ 0x0000000d (FINI)                       0x1f54c
+ 0x00000019 (INIT_ARRAY)                 0x20ef8
+ 0x0000001b (INIT_ARRAYSZ)               4 (bytes)
+ 0x0000001a (FINI_ARRAY)                 0x20efc
+ 0x0000001c (FINI_ARRAYSZ)               4 (bytes)
+ 0x00000004 (HASH)                       0xf4
+ 0x6ffffef5 (GNU_HASH)                   0x2404
+ 0x00000005 (STRTAB)                     0x9664
+ 0x00000006 (SYMTAB)                     0x4ab4
+ 0x0000000a (STRSZ)                      20535 (bytes)
+ 0x0000000b (SYMENT)                     16 (bytes)
+ 0x00000003 (PLTGOT)                     0x21000
+ 0x00000002 (PLTRELSZ)                   384 (bytes)
+ 0x00000014 (PLTREL)                     REL
+ 0x00000017 (JMPREL)                     0xf2cc
+ 0x00000011 (REL)                        0xf254
+ 0x00000012 (RELSZ)                      120 (bytes)
+ 0x00000013 (RELENT)                     8 (bytes)
+ 0x6ffffffc (VERDEF)                     0xf014
+ 0x6ffffffd (VERDEFNUM)                  16
+ 0x6ffffffe (VERNEED)                    0xf234
+ 0x6fffffff (VERNEEDNUM)                 1
+ 0x6ffffff0 (VERSYM)                     0xe69c
+ 0x6ffffffa (RELCOUNT)                   5
+ 0x00000000 (NULL)                       0x0
+
+
+Dynamic section at offset 0x4af04 contains 27 entries:
+  Tag        Type                         Name/Value
+ 0x00000001 (NEEDED)                     Shared library: [libdl.so.2]
+ 0x00000001 (NEEDED)                     Shared library: [libc.so.6]
+ 0x0000000e (SONAME)                     Library soname: [libSDL2-webos.so.0]
+ 0x0000000c (INIT)                       0xe844
+ 0x0000000d (FINI)                       0x42eb4
+ 0x00000019 (INIT_ARRAY)                 0x4bd40
+ 0x0000001b (INIT_ARRAYSZ)               8 (bytes)
+ 0x0000001a (FINI_ARRAY)                 0x4bd48
+ 0x0000001c (FINI_ARRAYSZ)               8 (bytes)
+ 0x00000004 (HASH)                       0x114
+ 0x6ffffef5 (GNU_HASH)                   0x16e8
+ 0x00000005 (STRTAB)                     0x66e0
+ 0x00000006 (SYMTAB)                     0x3040
+ 0x0000000a (STRSZ)                      16758 (bytes)
+ 0x0000000b (SYMENT)                     16 (bytes)
+ 0x00000003 (PLTGOT)                     0x4c000
+ 0x00000002 (PLTRELSZ)                   240 (bytes)
+ 0x00000014 (PLTREL)                     REL
+ 0x00000017 (JMPREL)                     0xe754
+ 0x00000011 (REL)                        0xaf6c
+ 0x00000012 (RELSZ)                      14312 (bytes)
+ 0x00000013 (RELENT)                     8 (bytes)
+ 0x6ffffffe (VERNEED)                    0xaf2c
+ 0x6fffffff (VERNEEDNUM)                 2
+ 0x6ffffff0 (VERSYM)                     0xa856
+ 0x6ffffffa (RELCOUNT)                   1784
+ 0x00000000 (NULL)                       0x0
+
+
+Dynamic section at offset 0x1f00 contains 28 entries:
+  Tag        Type                         Name/Value
+ 0x00000001 (NEEDED)                     Shared library: [libdl.so.2]
+ 0x00000001 (NEEDED)                     Shared library: [libc.so.6]
+ 0x0000000e (SONAME)                     Library soname: [libSDL2-2.0.so.0]
+ 0x0000000f (RPATH)                      Library rpath: [$ORIGIN]
+ 0x0000000c (INIT)                       0x5d4
+ 0x0000000d (FINI)                       0x105c
+ 0x00000019 (INIT_ARRAY)                 0x2ef8
+ 0x0000001b (INIT_ARRAYSZ)               4 (bytes)
+ 0x0000001a (FINI_ARRAY)                 0x2efc
+ 0x0000001c (FINI_ARRAYSZ)               4 (bytes)
+ 0x00000004 (HASH)                       0xd4
+ 0x6ffffef5 (GNU_HASH)                   0x17c
+ 0x00000005 (STRTAB)                     0x348
+ 0x00000006 (SYMTAB)                     0x1d8
+ 0x0000000a (STRSZ)                      412 (bytes)
+ 0x0000000b (SYMENT)                     16 (bytes)
+ 0x00000003 (PLTGOT)                     0x3000
+ 0x00000002 (PLTRELSZ)                   72 (bytes)
+ 0x00000014 (PLTREL)                     REL
+ 0x00000017 (JMPREL)                     0x58c
+ 0x00000011 (REL)                        0x554
+ 0x00000012 (RELSZ)                      56 (bytes)
+ 0x00000013 (RELENT)                     8 (bytes)
+ 0x6ffffffe (VERNEED)                    0x514
+ 0x6fffffff (VERNEEDNUM)                 2
+ 0x6ffffff0 (VERSYM)                     0x4e4
+ 0x6ffffffa (RELCOUNT)                   3
+ 0x00000000 (NULL)                       0x0
+
+
+Dynamic section at offset 0x1efedc contains 32 entries:
+  Tag        Type                         Name/Value
+ 0x00000001 (NEEDED)                     Shared library: [libm.so.6]
+ 0x00000001 (NEEDED)                     Shared library: [libdl.so.2]
+ 0x00000001 (NEEDED)                     Shared library: [librt.so.1]
+ 0x00000001 (NEEDED)                     Shared library: [libpthread.so.0]
+ 0x00000001 (NEEDED)                     Shared library: [libc.so.6]
+ 0x0000000e (SONAME)                     Library soname: [libSDL3.so.0]
+ 0x0000000c (INIT)                       0x220d0
+ 0x0000000d (FINI)                       0x1a44b8
+ 0x00000019 (INIT_ARRAY)                 0x1ea4e8
+ 0x0000001b (INIT_ARRAYSZ)               4 (bytes)
+ 0x0000001a (FINI_ARRAY)                 0x1ea4ec
+ 0x0000001c (FINI_ARRAYSZ)               4 (bytes)
+ 0x00000004 (HASH)                       0x114
+ 0x6ffffef5 (GNU_HASH)                   0x2914
+ 0x00000005 (STRTAB)                     0xb0b0
+ 0x00000006 (SYMTAB)                     0x5140
+ 0x0000000a (STRSZ)                      28961 (bytes)
+ 0x0000000b (SYMENT)                     16 (bytes)
+ 0x00000003 (PLTGOT)                     0x1f0000
+ 0x00000002 (PLTRELSZ)                   1888 (bytes)
+ 0x00000014 (PLTREL)                     REL
+ 0x00000017 (JMPREL)                     0x21970
+ 0x00000011 (REL)                        0x12eb8
+ 0x00000012 (RELSZ)                      60088 (bytes)
+ 0x00000013 (RELENT)                     8 (bytes)
+ 0x6ffffffc (VERDEF)                     0x12dc0
+ 0x6ffffffd (VERDEFNUM)                  2
+ 0x6ffffffe (VERNEED)                    0x12df8
+ 0x6fffffff (VERNEEDNUM)                 5
+ 0x6ffffff0 (VERSYM)                     0x121d2
+ 0x6ffffffa (RELCOUNT)                   7503
+ 0x00000000 (NULL)                       0x0
+
+
+Dynamic section at offset 0x5ded8 contains 33 entries:
+  Tag        Type                         Name/Value
+ 0x00000001 (NEEDED)                     Shared library: [libNDL_directmedia.so.1]
+ 0x00000001 (NEEDED)                     Shared library: [libpthread.so.0]
+ 0x00000001 (NEEDED)                     Shared library: [libdl.so.2]
+ 0x00000001 (NEEDED)                     Shared library: [libm.so.6]
+ 0x00000001 (NEEDED)                     Shared library: [libc.so.6]
+ 0x00000001 (NEEDED)                     Shared library: [ld-linux.so.3]
+ 0x00000001 (NEEDED)                     Shared library: [librt.so.1]
+ 0x0000000e (SONAME)                     Library soname: [ss4s-ndl-webos5.so]
+ 0x0000000f (RPATH)                      Library rpath: [$ORIGIN]
+ 0x0000000c (INIT)                       0x6de4
+ 0x0000000d (FINI)                       0x50030
+ 0x00000019 (INIT_ARRAY)                 0x5eb20
+ 0x0000001b (INIT_ARRAYSZ)               4 (bytes)
+ 0x0000001a (FINI_ARRAY)                 0x5eb24
+ 0x0000001c (FINI_ARRAYSZ)               4 (bytes)
+ 0x00000004 (HASH)                       0xf4
+ 0x6ffffef5 (GNU_HASH)                   0xc38
+ 0x00000005 (STRTAB)                     0x34e4
+ 0x00000006 (SYMTAB)                     0x1864
+ 0x0000000a (STRSZ)                      9048 (bytes)
+ 0x0000000b (SYMENT)                     16 (bytes)
+ 0x00000003 (PLTGOT)                     0x5f000
+ 0x00000002 (PLTRELSZ)                   2624 (bytes)
+ 0x00000014 (PLTREL)                     REL
+ 0x00000017 (JMPREL)                     0x63a4
+ 0x00000011 (REL)                        0x5c8c
+ 0x00000012 (RELSZ)                      1816 (bytes)
+ 0x00000013 (RELENT)                     8 (bytes)
+ 0x6ffffffe (VERNEED)                    0x5bcc
+ 0x6fffffff (VERNEEDNUM)                 6
+ 0x6ffffff0 (VERSYM)                     0x583c
+ 0x6ffffffa (RELCOUNT)                   120
+ 0x00000000 (NULL)                       0x0
+
+
+Dynamic section at offset 0x5ef8 contains 29 entries:
+  Tag        Type                         Name/Value
+ 0x00000001 (NEEDED)                     Shared library: [libpthread.so.0]
+ 0x00000001 (NEEDED)                     Shared library: [libc.so.6]
+ 0x0000000e (SONAME)                     Library soname: [libatomic.so.1]
+ 0x0000000c (INIT)                       0x15d0
+ 0x0000000d (FINI)                       0x4e8c
+ 0x00000019 (INIT_ARRAY)                 0x5ef0
+ 0x0000001b (INIT_ARRAYSZ)               4 (bytes)
+ 0x0000001a (FINI_ARRAY)                 0x5ef4
+ 0x0000001c (FINI_ARRAYSZ)               4 (bytes)
+ 0x00000004 (HASH)                       0xd4
+ 0x6ffffef5 (GNU_HASH)                   0x360
+ 0x00000005 (STRTAB)                     0xbe8
+ 0x00000006 (SYMTAB)                     0x608
+ 0x0000000a (STRSZ)                      1922 (bytes)
+ 0x0000000b (SYMENT)                     16 (bytes)
+ 0x00000003 (PLTGOT)                     0x6000
+ 0x00000002 (PLTRELSZ)                   176 (bytes)
+ 0x00000014 (PLTREL)                     REL
+ 0x00000017 (JMPREL)                     0x1520
+ 0x00000011 (REL)                        0x14e8
+ 0x00000012 (RELSZ)                      56 (bytes)
+ 0x00000013 (RELENT)                     8 (bytes)
+ 0x6ffffffc (VERDEF)                     0x1428
+ 0x6ffffffd (VERDEFNUM)                  4
+ 0x6ffffffe (VERNEED)                    0x14a8
+ 0x6fffffff (VERNEEDNUM)                 2
+ 0x6ffffff0 (VERSYM)                     0x136a
+ 0x6ffffffa (RELCOUNT)                   3
+ 0x00000000 (NULL)                       0x0
+
+Dependency closure checked against explicit TV library allowlist (TV availability still pending)
+1ff181adc1c937a443d7efd025987f67c013274051ca6795689493e96e137ffe m0
+5991e72b825af820aaf31e15a65478445f47938c0189bbc33f60f4061f05ccb9 lib/ss4s-ndl-webos5.so
+c9c1b25e88e1385135959f1877fec2a0ccb0b76f9f5854f7ceee4c717b05b2c0 lib/libSDL2-2.0.so.0
+13341118ad289a79c06eb047a0d6af67d53ce348b5dd0d330b01955bc109da95 assets/test.h264
+Stage ELF/asset audit passed; TV runtime libraries and physical output UNVERIFIED
