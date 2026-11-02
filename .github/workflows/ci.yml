@@ -26,4 +26,5 @@ jobs:
           scripts/build-client.sh
           scripts/package-client.sh
           scripts/verify-client.sh
+          scripts/check-native-sanitizers.sh
           scripts/repro-client.sh

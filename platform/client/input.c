@@ -35,6 +35,10 @@ static int is_usb_pad(void) {
         SDL_JoystickGetGUID(SDL_GameControllerGetJoystick(pad));
     return g.data[0] == 3 && g.data[1] == 0;
 }
+static int is_usb_dualsense(void) {
+    return pad && SDL_GameControllerGetType(pad) == SDL_CONTROLLER_TYPE_PS5 &&
+           is_usb_pad();
+}
 void client_snapshot(RpInput *out) { *out = state; }
 void client_release(void) {
     memset(&state, 0, sizeof(state));
@@ -225,7 +229,7 @@ void rp_feedback(uint8_t left, uint8_t right, const uint8_t *rgb,
         hid_attempted = 1;
         // Upstream fallback can choose another pad: allow it only for one wired
         // DS.
-        if (is_usb_pad() && wired_dualsense_count() == 1)
+        if (is_usb_dualsense() && wired_dualsense_count() == 1)
             usb = dualsense_usb_open(pad);
     }
     if (!enabled || !usb)
@@ -247,7 +251,7 @@ void rp_feedback(uint8_t left, uint8_t right, const uint8_t *rgb,
 }
 int rp_haptics_open(const char *name) {
     rp_haptics_close();
-    if (!name || !*name || !is_usb_pad() || wired_dualsense_count() != 1 ||
+    if (!name || !*name || !is_usb_dualsense() || wired_dualsense_count() != 1 ||
         (!strstr(name, "DualSense") && !strstr(name, "Wireless Controller")))
         return -1;
     if (SDL_InitSubSystem(SDL_INIT_AUDIO) < 0)

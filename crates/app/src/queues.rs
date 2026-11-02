@@ -149,6 +149,10 @@ impl AudioQueue {
         if data.is_empty() || data.len() > 4096 {
             return;
         }
+        // Redundant transport packets must not flush a full jitter buffer.
+        if self.packets.contains_key(&seq) {
+            return;
+        }
         if let Some(n) = self.next {
             let delta = seq.wrapping_sub(n) as i16;
             if delta < 0 {
@@ -216,6 +220,10 @@ impl Default for Inputs {
     }
 }
 impl Inputs {
+    pub fn release(&mut self) {
+        self.states.clear();
+        self.states.push_back(ControllerState::default());
+    }
     pub fn push(&mut self, s: ControllerState) {
         if self.states.back() == Some(&s) {
             return;
@@ -286,6 +294,29 @@ mod tests {
     fn hevc_irap() {
         assert!(keyframe(&[0, 0, 0, 1, 19 << 1, 1], true));
         assert!(!keyframe(&[0, 0, 1, 1 << 1, 1], true));
+    }
+    #[test]
+    fn duplicate_audio_does_not_flush_full_buffer() {
+        let mut q = AudioQueue::new(20);
+        let now = Instant::now();
+        for seq in 0..24 {
+            q.push(seq, &[seq as u8], now);
+        }
+        q.push(23, &[23], now);
+        assert_eq!(q.packets.len(), 24);
+        assert_eq!(q.lost, 0);
+        assert_eq!(q.pop(now + Duration::from_millis(20)), Some(vec![0]));
+    }
+    #[test]
+    fn release_discards_pending_presses() {
+        let mut q = Inputs::default();
+        q.push(ControllerState {
+            buttons: 1,
+            ..Default::default()
+        });
+        q.release();
+        assert_eq!(q.pop(), Some(ControllerState::default()));
+        assert_eq!(q.pop(), None);
     }
 }
 

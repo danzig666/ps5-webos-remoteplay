@@ -1,0 +1,3 @@
+     Removed 3 files, 7.0KiB total
+     Removed 10 files, 55.0MiB total
+Identical client, native libraries and IPK after clean rebuilds

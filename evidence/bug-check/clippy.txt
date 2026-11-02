@@ -1,0 +1,110 @@
+    Checking ps5remote-app v0.2.0 (/workspace/ps5remote-webos/crates/app)
+warning: using `chunks_exact` with a constant chunk size
+  --> crates/app/src/haptics.rs:20:22
+   |
+20 |         for b in pcm.chunks_exact(4) {
+   |                      ^^^^^^^^^^^^^^^ help: consider using `as_chunks` instead: `as_chunks::<4>().0`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#chunks_exact_to_as_chunks
+   = note: `#[warn(clippy::chunks_exact_to_as_chunks)]` on by default
+
+warning: using `chunks_exact` with a constant chunk size
+  --> crates/app/src/haptics.rs:45:18
+   |
+45 |     for b in pcm.chunks_exact(4) {
+   |                  ^^^^^^^^^^^^^^^ help: consider using `as_chunks` instead: `as_chunks::<4>().0`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#chunks_exact_to_as_chunks
+
+warning: this `impl` can be derived
+   --> crates/app/src/queues.rs:214:1
+    |
+214 | / impl Default for Inputs {
+215 | |     fn default() -> Self {
+216 | |         Self {
+217 | |             states: VecDeque::new(),
+...   |
+221 | | }
+    | |_^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#derivable_impls
+    = note: `#[warn(clippy::derivable_impls)]` on by default
+help: replace the manual implementation with a derive attribute
+    |
+210 + #[derive(Default)]
+211 | pub struct Inputs {
+    |
+
+warning: manually reimplementing `div_ceil`
+   --> crates/app/src/ui.rs:816:27
+    |
+816 |             for row in 0..((KEYS.len() + 2 + 9) / 10) {
+    |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `(KEYS.len() + 2).div_ceil(10)`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_div_ceil
+    = note: `#[warn(clippy::manual_div_ceil)]` on by default
+
+warning: `ps5remote-app` (lib) generated 4 warnings (run `cargo clippy --fix --lib -p ps5remote-app -- ` to apply 4 suggestions)
+warning: field assignment outside of initializer for an instance created with Default::default()
+   --> crates/app/src/ffi.rs:150:9
+    |
+150 |         r.connected = 1;
+    |         ^^^^^^^^^^^^^^^^
+    |
+note: consider initializing the variable with `ffi::RawInput { connected: 1, buttons: (1 << 11) | (1 << 20) | (1 << 4), lx: i16::MIN, rx: 100, l2: i16::MAX, touch_active: 1, touch_x: 65535, ..Default::default() }` and removing relevant reassignments
+   --> crates/app/src/ffi.rs:149:9
+    |
+149 |         let mut r = RawInput::default();
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#field_reassign_with_default
+    = note: `#[warn(clippy::field_reassign_with_default)]` on by default
+
+warning: using `chunks_exact` with a constant chunk size
+  --> crates/app/src/haptics.rs:74:22
+   |
+74 |         for f in out.chunks_exact(4) {
+   |                      ^^^^^^^^^^^^^^^ help: consider using `as_chunks` instead: `as_chunks::<4>().0`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#chunks_exact_to_as_chunks
+
+warning: field assignment outside of initializer for an instance created with Default::default()
+   --> crates/app/src/queues.rs:274:9
+    |
+274 |         s.buttons = 1;
+    |         ^^^^^^^^^^^^^^
+    |
+note: consider initializing the variable with `psremote::rp_stream::ControllerState { buttons: 1, ..Default::default() }` and removing relevant reassignments
+   --> crates/app/src/queues.rs:273:9
+    |
+273 |         let mut s = ControllerState::default();
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#field_reassign_with_default
+
+warning: field assignment outside of initializer for an instance created with Default::default()
+   --> crates/app/src/queues.rs:343:13
+    |
+343 |             state.buttons = (frame % 2) as u32;
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+note: consider initializing the variable with `psremote::rp_stream::ControllerState { buttons: (frame % 2) as u32, ..Default::default() }` and removing relevant reassignments
+   --> crates/app/src/queues.rs:342:13
+    |
+342 |             let mut state = ControllerState::default();
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#field_reassign_with_default
+
+warning: field assignment outside of initializer for an instance created with Default::default()
+    --> crates/app/src/ui.rs:1028:9
+     |
+1028 |         e.input_changed = 1;
+     |         ^^^^^^^^^^^^^^^^^^^^
+     |
+note: consider initializing the variable with `ffi::Event { input_changed: 1, ..Default::default() }` and removing relevant reassignments
+    --> crates/app/src/ui.rs:1027:9
+     |
+1027 |         let mut e = Event::default();
+     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#field_reassign_with_default
+
+warning: `ps5remote-app` (lib test) generated 9 warnings (4 duplicates) (run `cargo clippy --fix --lib -p ps5remote-app --tests -- ` to apply 1 suggestion)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.19s

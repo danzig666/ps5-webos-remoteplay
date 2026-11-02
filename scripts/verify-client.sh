@@ -10,6 +10,8 @@ mkdir -p build
 sdk_headers="$WEBOS_SDK_DIR/arm-webos-linux-gnueabi/sysroot/usr/include/SDL2"
 gcc -std=c11 -Wall -Wextra -ffunction-sections -fdata-sections -Wl,--gc-sections -I"$sdk_headers" -Iplatform/client/vendor -Iplatform/client/compat -Iupstream/aurora-tv/core/moonlight-common-c/src tests/hid-report-test.c -o build/hid-report-test
 build/hid-report-test
+gcc -std=c11 -Wall -Wextra -Werror -ffunction-sections -fdata-sections -Wl,--gc-sections -I"$sdk_headers" -Iplatform/client/vendor -Iplatform/client/compat -Iupstream/aurora-tv/core/moonlight-common-c/src tests/controller-selection-test.c -o build/controller-selection-test
+build/controller-selection-test
 printf 'USB HID byte/strength/reset capture passed (no hardware access)\n'
 gcc -std=c11 -Wall -Wextra -Werror platform/webos/device_probe.c tests/device-probe-test.c -o build/device-probe-test
 build/device-probe-test

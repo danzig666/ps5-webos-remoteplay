@@ -276,6 +276,20 @@ pub(crate) struct HttpReply {
     pub(crate) body: Vec<u8>,
 }
 
+/// Bound control replies before buffering data from the console.
+pub(crate) fn read_http_reply(reader: impl Read) -> std::io::Result<Vec<u8>> {
+    const LIMIT: usize = 64 * 1024;
+    let mut raw = Vec::new();
+    reader.take((LIMIT + 1) as u64).read_to_end(&mut raw)?;
+    if raw.len() > LIMIT {
+        return Err(std::io::Error::new(
+            std::io::ErrorKind::InvalidData,
+            "console HTTP reply exceeds 64 KiB",
+        ));
+    }
+    Ok(raw)
+}
+
 /// Split a raw HTTP response into its status code, headers and body.
 pub(crate) fn split_http(raw: &[u8]) -> Result<HttpReply> {
     let split = raw
@@ -370,9 +384,7 @@ pub fn register(host: &str, account_id_b64: &str, pin: u32) -> Result<Registrati
     stream.flush().ok();
     let _ = stream.shutdown(Shutdown::Write);
 
-    let mut raw = Vec::new();
-    stream
-        .read_to_end(&mut raw)
+    let raw = read_http_reply(&mut stream)
         .map_err(|e| anyhow!("reading the console's reply: {e}"))?;
 
     let reply = split_http(&raw)?;
@@ -448,6 +460,15 @@ fn getrandom_bytes(buf: &mut [u8]) -> Result<()> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn http_reply_reads_are_bounded() {
+        let reply = b"HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n";
+        assert_eq!(read_http_reply(&reply[..]).unwrap(), reply);
+        assert_eq!(read_http_reply(&vec![0; 65536][..]).unwrap().len(), 65536);
+        let err = read_http_reply(std::io::repeat(0)).unwrap_err();
+        assert_eq!(err.kind(), std::io::ErrorKind::InvalidData);
+    }
 
     /// The nonce source has to work on every platform we ship. It used to read
     /// `/dev/urandom`, so on Windows Wake & sign in failed with "os error 3" before sending

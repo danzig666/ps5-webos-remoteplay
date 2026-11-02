@@ -86,7 +86,7 @@ impl Shared {
         })
     }
     pub fn cancel(&self) {
-        lock(&self.inputs).push(ControllerState::default());
+        lock(&self.inputs).release();
         self.stop.store(true, Ordering::Release);
         *lock(&self.passcode) = Some(Passcode::Cancel);
     }

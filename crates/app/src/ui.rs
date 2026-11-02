@@ -5,7 +5,7 @@ use crate::{
     haptics::Upsampler,
     session::{self, lock, Outcome, Shared},
 };
-use psremote::rp_stream::{ControllerState, Passcode};
+use psremote::rp_stream::Passcode;
 use std::{
     ffi::CString,
     sync::{atomic::Ordering, mpsc, Arc},
@@ -121,6 +121,8 @@ impl App {
         self.raw_rumble = (0, 0);
         self.last_led = None;
         self.last_triggers = None;
+        self.outputs_dirty = true;
+        self.rumble_is_haptics = false;
         self.upsampler = Upsampler::default();
     }
     fn disconnect(&mut self) {
@@ -271,6 +273,7 @@ impl App {
                 }
                 self.haptics_open = false;
                 self.haptics_attempted = false;
+                self.outputs_dirty = true;
             }
             15 => {
                 self.prefs.usb_audio = !self.prefs.usb_audio;
@@ -319,6 +322,9 @@ impl App {
     }
     pub fn event(&mut self, e: &Event) -> bool {
         if e.input_changed != 0 {
+            if self.raw.connected != e.input.connected {
+                self.outputs_dirty = true;
+            }
             self.raw = e.input;
             if self.raw.connected == 0 {
                 unsafe {
@@ -327,13 +333,15 @@ impl App {
                 self.haptics_open = false;
                 self.haptics_attempted = false;
                 self.last_rumble = (0, 0);
+                self.raw_rumble = (0, 0);
+                self.rumble_is_haptics = false;
             }
             if let Some(s) = &self.shared {
-                lock(&s.inputs).push(if self.menu {
-                    ControllerState::default()
+                if self.menu || self.raw.connected == 0 {
+                    lock(&s.inputs).release();
                 } else {
-                    self.raw.normalized(&self.prefs)
-                });
+                    lock(&s.inputs).push(self.raw.normalized(&self.prefs));
+                }
             }
         }
         if e.kind == 9 {
@@ -347,7 +355,10 @@ impl App {
         if e.kind == 11 {
             self.menu = !self.menu;
             if let Some(s) = &self.shared {
-                lock(&s.inputs).push(ControllerState::default());
+                lock(&s.inputs).release();
+                if !self.menu {
+                    lock(&s.inputs).push(self.raw.normalized(&self.prefs));
+                }
             }
             return true;
         }
@@ -543,6 +554,19 @@ impl App {
             }
             return;
         }
+        // Keep the IDR queued until both media streams can be opened. Consuming
+        // it here would leave only dependent frames for a brand-new decoder.
+        let Some(h) = header else {
+            if s.received.load(Ordering::Relaxed) > 0
+                && now.duration_since(self.last_video) > Duration::from_secs(3)
+            {
+                s.cancel();
+                self.clear_outputs();
+                self.notice("Unsupported or missing Opus audio header");
+                self.menu = true;
+            }
+            return;
+        };
         let frame = {
             let mut q = lock(&s.video);
             let f = q.pop(now);
@@ -553,15 +577,12 @@ impl App {
         };
         if let Some(frame) = frame {
             self.last_received = now;
-            let Some(h) = header else {
-                if now.duration_since(self.last_video) > Duration::from_secs(3) {
-                    s.cancel();
-                    self.notice("Unsupported or missing Opus audio header");
-                    self.menu = true;
-                }
-                return;
-            };
             if self.decoder != Some((frame.width, frame.height)) {
+                if !frame.key {
+                    lock(&s.video).reset();
+                    s.keyframe.store(true, Ordering::Relaxed);
+                    return;
+                }
                 let rc = unsafe {
                     ffi::rp_media_open(
                         frame.width as i32,
@@ -1061,6 +1082,89 @@ mod tests {
         assert!(!a.prefs.reconnect);
         assert!(a.retry_at.is_none());
         assert!(a.fallback.is_none());
+        std::fs::remove_dir_all(path).unwrap();
+    }
+
+    #[test]
+    fn delayed_audio_header_preserves_initial_video_keyframe() {
+        let (mut a, path) = app();
+        let s = Shared::new(&a.prefs);
+        let now = Instant::now();
+        lock(&s.video).header(&[0, 0, 1, 7]);
+        assert!(lock(&s.video).push(&[0, 0, 1, 5], now));
+        a.pump_media(&s);
+        assert_eq!(lock(&s.video).frames.len(), 1);
+        assert!(a.decoder.is_none());
+        lock(&s.audio).header = Some(psremote::rp_stream::AudioHeader {
+            channels: 2,
+            bits: 16,
+            rate: 48000,
+            frame_size: 480,
+        });
+        a.pump_media(&s);
+        assert_eq!(s.submitted.load(Ordering::Relaxed), 1);
+        assert!(a.decoder.is_some());
+        std::fs::remove_dir_all(path).unwrap();
+    }
+
+    #[test]
+    fn new_decoder_rejects_dependent_frame_and_requests_keyframe() {
+        let (mut a, path) = app();
+        let s = Shared::new(&a.prefs);
+        let now = Instant::now();
+        lock(&s.audio).header = Some(psremote::rp_stream::AudioHeader {
+            channels: 2,
+            bits: 16,
+            rate: 48000,
+            frame_size: 480,
+        });
+        let mut q = lock(&s.video);
+        q.header(&[0, 0, 1, 7]);
+        q.push(&[0, 0, 1, 5], now);
+        q.pop(now);
+        q.push(&[0, 0, 1, 1], now);
+        drop(q);
+        s.keyframe.store(false, Ordering::Relaxed);
+        a.pump_media(&s);
+        assert!(a.decoder.is_none());
+        assert_eq!(s.submitted.load(Ordering::Relaxed), 0);
+        assert!(s.keyframe.load(Ordering::Relaxed));
+        std::fs::remove_dir_all(path).unwrap();
+    }
+
+    #[test]
+    fn reenabled_effects_restore_cached_trigger_and_led_state() {
+        let (mut a, path) = app();
+        let s = Shared::new(&a.prefs);
+        a.outputs_dirty = false;
+        a.last_triggers = Some([1; 22]);
+        a.last_led = Some([2; 3]);
+        a.selected = 14;
+        a.adjust(1);
+        assert!(a.outputs_dirty);
+        a.pump_feedback(&s);
+        crate::native_test::FEEDBACK.with(|f| {
+            let f = f.borrow();
+            let (_, _, led, triggers) = f.last().unwrap();
+            assert_eq!(*led, Some([2; 3]));
+            assert_eq!(*triggers, Some([1; 22]));
+        });
+        std::fs::remove_dir_all(path).unwrap();
+    }
+
+    #[test]
+    fn disconnected_controller_cannot_revive_stale_rumble_on_strength_change() {
+        let (mut a, path) = app();
+        a.raw.connected = 2;
+        a.raw_rumble = (200, 100);
+        a.last_rumble = (200, 100);
+        a.event(&Event {
+            input_changed: 1,
+            ..Default::default()
+        });
+        a.prefs.haptics_strength = 2;
+        a.pump_feedback(&Shared::new(&a.prefs));
+        assert_eq!(a.last_rumble, (0, 0));
         std::fs::remove_dir_all(path).unwrap();
     }
 }

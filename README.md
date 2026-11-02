@@ -4,6 +4,8 @@ An ARMv7 native client for LG OLED C2/C3, built around pinned PS5Upload Remote P
 
 **Development build 0.2.0. M1–M6 software paths are implemented; real PS5 sessions and C2/C3 hardware validation have not been performed.** Hardware tests are deferred by the user's instruction, not treated as passed. This is not a verified release. See [implementation status and limits](docs/implementation-status.md).
 
+Latest [software bug-check report](docs/bug-check-2026-11-02.md): seven findings fixed, 147 Rust tests passing, native sanitizer checks and reproducible ARM/IPK builds. The original versioned prerelease downloads predate these fixes.
+
 ## Downloads
 
 [Development build downloads](https://github.com/danzig666/ps5-webos-remoteplay/tree/main/artifacts/v0.2.0-dev.1) include the native client IPK, the source archive with dependencies, the preserved M0 prototype, and SHA256SUMS. These are development builds with physical hardware testing deferred. The exact checksummed artifacts are stored in the repository because release-asset uploads were unavailable through the connected credentials.
@@ -31,7 +33,7 @@ python3 scripts/fetch-upstream.py
 
 The client IPK is `dist/org.homebrew.ps5remote_0.2.0_arm.ipk`. The M0 feasibility package remains separate as `org.homebrew.ps5remote.m0`; it can coexist with the client. Its original package, source archive and historical evidence are preserved. Its earlier instructions are in [M0-build.md](docs/M0-build.md); current source builds use the workspace's Rust 1.99.1 pin.
 
-Tool/source preparation requires network access; Cargo and native application builds then run offline against the lockfile. `verify-client.sh` uses loopback TCP/UDP sockets for the upstream protocol tests, never a PS5. [Hosted GitHub Actions passed](https://github.com/danzig666/ps5-webos-remoteplay/actions/runs/41397348283) for source commit `38032a8`, running the build, tests and checksum comparison. Later publication commits add downloads/documentation and exclude binary downloads from future source exports; application code is unchanged.
+Tool/source preparation requires network access; Cargo and native application builds then run offline against the lockfile. `verify-client.sh` uses loopback TCP/UDP sockets for the upstream protocol tests, never a PS5. [Hosted GitHub Actions passed](https://github.com/danzig666/ps5-webos-remoteplay/actions/runs/41397348283) for source commit `38032a8`, running the build, tests and checksum comparison. That hosted result covers the original release source. Current fixes and their local verification are documented in the bug-check report above.
 
 Configure your TV in Developer Mode or WebOS Dev Manager, then, when hardware testing is resumed:
 
@@ -76,6 +78,6 @@ The statistics distinguish received/submitted frames, queue drops and feed error
 
 Read [the hardware test matrix](docs/client-hardware-tests.md) and [capability CSV](docs/client-capability-matrix.csv), [implementation status](docs/implementation-status.md), and [source/license notices](THIRD_PARTY.md). Main logs are `/tmp/ps5remote.log` and one previous-launch log. Never attach `pairing.json` or unmasked account/PIN data to a report. Private data is under the SDL preference directory; `PS5REMOTE_DATA_DIR` is an optional explicit directory override for controlled diagnostics.
 
-M0 remains GPLv3; the separate combined client and the new Rust app/protocol integration are AGPLv3. Pinned sources, recorded patches, dependency locks and license notices are provided for review/rebuilding. No publication, deployment, PS5 account modification or physical hardware test was performed.
+M0 remains GPLv3; the separate combined client and the new Rust app/protocol integration are AGPLv3. Pinned sources, recorded patches, dependency locks and license notices are provided for review/rebuilding. Source and the original development artifacts are published in the linked repository. No TV deployment, PS5 account modification or physical hardware test was performed.
 
 The `ps5remote-webos-0.2.0-source.tar.gz` review archive includes the actual protocol/adapter sources, Cargo dependency sources and hash-manifested snapshots of the pinned native dependencies (including SDL3/webOS source). Source-snapshot verification works without Git metadata. The PS5Upload snapshot contains the exact original inputs used to verify the lean extraction; reproducing the optional full original-core portability experiment requires the full pinned upstream checkout. Toolchains/SDK archives are fetched separately using their recorded checksums.

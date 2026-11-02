@@ -9,6 +9,8 @@ use std::{
     ffi::{c_char, CStr},
 };
 thread_local! {pub static LINES:RefCell<Vec<String>>=const{RefCell::new(Vec::new())};}
+type Feedback = (u8, u8, Option<[u8; 3]>, Option<[u8; 22]>);
+thread_local! {pub static FEEDBACK: RefCell<Vec<Feedback>> = const { RefCell::new(Vec::new()) };}
 #[no_mangle]
 pub extern "C" fn rp_open() -> i32 {
     0
@@ -54,7 +56,19 @@ pub extern "C" fn rp_audio(_: *const u8, _: usize, _: i32) -> i32 {
 #[no_mangle]
 pub extern "C" fn rp_media_close() {}
 #[no_mangle]
-pub extern "C" fn rp_feedback(_: u8, _: u8, _: *const u8, _: *const u8, _: i32, _: i32) {}
+pub extern "C" fn rp_feedback(l: u8, r: u8, rgb: *const u8, triggers: *const u8, _: i32, _: i32) {
+    let led = if rgb.is_null() {
+        None
+    } else {
+        Some(unsafe { *(rgb as *const [u8; 3]) })
+    };
+    let triggers = if triggers.is_null() {
+        None
+    } else {
+        Some(unsafe { *(triggers as *const [u8; 22]) })
+    };
+    FEEDBACK.with(|f| f.borrow_mut().push((l, r, led, triggers)));
+}
 #[no_mangle]
 pub extern "C" fn rp_effects_reset() {}
 #[no_mangle]

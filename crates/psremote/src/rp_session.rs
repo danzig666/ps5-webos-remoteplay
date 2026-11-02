@@ -57,7 +57,7 @@ use crate::rp_login_pin::{
     PasscodePrompt, PinFlow, CTRL_LOGIN, LOGIN_STATE_SUCCESS as CTRL_LOGIN_STATE_SUCCESS,
     PASSCODE_CONSOLE_GAVE_UP, PASSCODE_WAIT,
 };
-use crate::rp_regist::{generate_iv, resolve, split_http};
+use crate::rp_regist::{generate_iv, read_http_reply, resolve, split_http};
 
 /// How a Wake & sign in ended, when it did not fail.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -208,9 +208,7 @@ pub(crate) fn session_init(host: &str, regist_key: &[u8; KEY_SIZE]) -> Result<[u
     stream.flush().ok();
     let _ = stream.shutdown(Shutdown::Write);
 
-    let mut raw = Vec::new();
-    stream
-        .read_to_end(&mut raw)
+    let raw = read_http_reply(&mut stream)
         .map_err(|e| anyhow!("reading session init reply: {e}"))?;
     let reply = split_http(&raw)?;
     if reply.code != 200 {

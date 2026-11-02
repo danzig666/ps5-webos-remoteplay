@@ -1,0 +1,53 @@
+   Compiling ps5remote-app v0.2.0 (/tmp/psremote-bug-regression-before/crates/app)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.88s
+     Running unittests src/lib.rs (/tmp/psremote-bug-regression-before/target/debug/deps/ps5remote_app-8b463aa35a6dd3ef)
+
+running 10 tests
+test ui::tests::disabling_reconnect_cancels_an_already_scheduled_attempt ... ok
+test ui::tests::disconnected_controller_cannot_revive_stale_rumble_on_strength_change ... FAILED
+test ui::tests::cancelled_pairing_result_does_not_replace_existing_credentials ... ok
+test ui::tests::intensity_respects_off_and_weaker_setting ... ok
+test ui::tests::delayed_audio_header_preserves_initial_video_keyframe ... FAILED
+test ui::tests::new_decoder_rejects_dependent_frame_and_requests_keyframe ... FAILED
+test ui::tests::opening_menu_releases_game_input_and_disconnect_cancels_retry ... ok
+test ui::tests::passcode_prompt_focus_does_not_prevent_selecting_submit ... ok
+test ui::tests::reenabled_effects_restore_cached_trigger_and_led_state ... FAILED
+test ui::tests::setup_editor_saves_host_and_never_draws_secrets ... ok
+
+failures:
+
+---- ui::tests::disconnected_controller_cannot_revive_stale_rumble_on_strength_change stdout ----
+
+thread 'ui::tests::disconnected_controller_cannot_revive_stale_rumble_on_strength_change' (34351) panicked at crates/app/src/ui.rs:1146:9:
+assertion `left == right` failed
+  left: (132, 66)
+ right: (0, 0)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- ui::tests::delayed_audio_header_preserves_initial_video_keyframe stdout ----
+
+thread 'ui::tests::delayed_audio_header_preserves_initial_video_keyframe' (34349) panicked at crates/app/src/ui.rs:1075:9:
+assertion `left == right` failed
+  left: 0
+ right: 1
+
+---- ui::tests::new_decoder_rejects_dependent_frame_and_requests_keyframe stdout ----
+
+thread 'ui::tests::new_decoder_rejects_dependent_frame_and_requests_keyframe' (34353) panicked at crates/app/src/ui.rs:1108:9:
+assertion failed: a.decoder.is_none()
+
+---- ui::tests::reenabled_effects_restore_cached_trigger_and_led_state stdout ----
+
+thread 'ui::tests::reenabled_effects_restore_cached_trigger_and_led_state' (34356) panicked at crates/app/src/ui.rs:1123:9:
+assertion failed: a.outputs_dirty
+
+
+failures:
+    ui::tests::delayed_audio_header_preserves_initial_video_keyframe
+    ui::tests::disconnected_controller_cannot_revive_stale_rumble_on_strength_change
+    ui::tests::new_decoder_rejects_dependent_frame_and_requests_keyframe
+    ui::tests::reenabled_effects_restore_cached_trigger_and_led_state
+
+test result: FAILED. 6 passed; 4 failed; 0 ignored; 0 measured; 15 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p ps5remote-app --lib`

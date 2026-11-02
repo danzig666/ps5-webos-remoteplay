@@ -1,7 +1,7 @@
 Pinned build input revisions verified
 PS5Upload extraction matches pinned source and patch
    Compiling ps5remote-app v0.2.0 (/workspace/ps5remote-webos/crates/app)
-    Finished `release` profile [optimized] target(s) in 2.21s
+    Finished `release` profile [optimized] target(s) in 2.20s
     Finished `release` profile [optimized] target(s) in 0.01s
 -- Configuring done (0.0s)
 -- Generating done (0.0s)
@@ -18,13 +18,13 @@ PS5Upload extraction matches pinned source and patch
 [ 24%] Built target ss4s-webos-utils
 [ 27%] Building C object CMakeFiles/sdl2_ndl_shim.dir/upstream/aurora-tv/src/app/platform/webos/sdl2_ndl_shim.c.o
 [ 29%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/video.c.o
-[ 32%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/module.c.o
-[ 35%] Linking C shared library libSDL2-2.0.so.0
+[ 32%] Linking C shared library libSDL2-2.0.so.0
+[ 35%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/module.c.o
+[ 35%] Built target sdl2_ndl_shim
 [ 37%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/stats.c.o
-[ 37%] Built target sdl2_ndl_shim
 [ 40%] Building C object CMakeFiles/ss4s-module-ndl-webos5.dir/upstream/ss4s/modules/webos/ndl/webos5/ndl_module.c.o
-[ 43%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/feed_guard.c.o
-[ 45%] Building C object CMakeFiles/ss4s-module-ndl-webos5.dir/upstream/ss4s/modules/webos/ndl/webos5/ndl_player.c.o
+[ 43%] Building C object CMakeFiles/ss4s-module-ndl-webos5.dir/upstream/ss4s/modules/webos/ndl/webos5/ndl_player.c.o
+[ 45%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/feed_guard.c.o
 [ 48%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/module_libdl.c.o
 [ 51%] Building C object CMakeFiles/ss4s.dir/upstream/ss4s/src/mutex_pthread.c.o
 [ 54%] Linking C static library libss4s.a
@@ -40,9 +40,9 @@ PS5Upload extraction matches pinned source and patch
 [ 78%] Building C object CMakeFiles/ss4s-module-ndl-webos5.dir/upstream/ss4s/modules/webos/common/aurora_frame_diag.c.o
 [ 81%] Linking C executable m0
 [ 83%] Linking C shared library ss4s-ndl-webos5.so
-[ 83%] Built target m0
 [ 83%] Built target ss4s-module-ndl-webos5
 [ 86%] Building C object CMakeFiles/ps5remote.dir/platform/client/main.c.o
+[ 86%] Built target m0
 [ 89%] Building C object CMakeFiles/ps5remote.dir/platform/client/platform.c.o
 [ 91%] Building C object CMakeFiles/ps5remote.dir/platform/client/input.c.o
 [ 94%] Building C object CMakeFiles/ps5remote.dir/platform/client/vendor/dualsense_usb.c.o
@@ -57,7 +57,7 @@ PS5Upload extraction matches pinned source and patch
 -- Set non-toolchain portion of runtime path of "/workspace/ps5remote-webos/build/client-stage/lib/libSDL2-2.0.so.0" to "$ORIGIN"
 -- Install configuration: "Release"
 -- Installing: /workspace/ps5remote-webos/build/client-stage/./ps5remote
-cc5d311e04130b99df1db0f8eefaede83675c0aeaa142123d59ae2a9b0f1ea46 ps5remote
+82ee54365c1eae96199fd055e86a95a6d318cec32c6e127b1467feb5d1834e0e ps5remote
 c452c9ea0f2bb7e75b1485c5924d2506378dac26ae58084dd51f97cedfacd4da lib/libgcc_s.so.1
 eda24bd38e58a180d466385060000e02c629f14545176437f42df9544ff75c10 lib/libSDL2-webos.so.0
 c9c1b25e88e1385135959f1877fec2a0ccb0b76f9f5854f7ceee4c717b05b2c0 lib/libSDL2-2.0.so.0
